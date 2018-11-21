@@ -32,4 +32,6 @@ if [ -n "$DISPLAY" ]; then
 fi
 
 # enable completion for pipenv
-# eval "$(pipenv --completion)"
+# if [ -n "$BASH_VERSION" ]; then
+#     eval "$(pipenv --completion)"
+# fi
