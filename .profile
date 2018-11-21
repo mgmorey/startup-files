@@ -30,3 +30,6 @@ fi
 if [ -n "$DISPLAY" ]; then
     eval `askpass`
 fi
+
+# enable completion for pipenv
+# eval "$(pipenv --completion)"
