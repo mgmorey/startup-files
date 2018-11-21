@@ -27,9 +27,9 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
-if [ -n "$DISPLAY" ]; then
-    eval `askpass`
-fi
+# if [ -n "$DISPLAY" ]; then
+#     eval `askpass`
+# fi
 
 # enable completion for pipenv
 # if [ -n "$BASH_VERSION" ]; then
