@@ -26,6 +26,16 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+# set INFOPATH so it includes user's private info if it exists
+if [ -d "$HOME/info" ] ; then
+    INFOPATH="$HOME/info:$INFOPATH"
+fi
+
+# set MANPATH so it includes user's private man if it exists
+if [ -d "$HOME/man" ] ; then
+    MANPATH="$HOME/man:$MANPATH"
+fi
+
 # set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
 # if [ -n "$DISPLAY" ]; then
 #     eval `askpass`
