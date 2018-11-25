@@ -12,18 +12,28 @@ EDITOR=emacs
 FLASK_ENV=development
 export EDITOR FLASK_ENV
 
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
+# # if running bash
+# if [ -n "$BASH_VERSION" ]; then
+#     # include .bashrc if it exists
+#     if [ -f "$HOME/.bashrc" ]; then
+# 	. "$HOME/.bashrc"
+#     fi
+# fi
+
+# # set PATH so it includes /usr/gnu/bin if it exists
+# if [ -d "/usr/gnu/bin" ] ; then
+#     PATH="/usr/gnu/bin:$PATH"
+# fi
+
+# # set PATH so it includes /usr/local/bin if it exists
+# if [ -d "/usr/local/bin" ] ; then
+#     PATH="/usr/local/bin:$PATH"
+# fi
 
 # enable Python Package Manager
 PATH="$HOME/.local/bin:$PATH"
 
-# enable Python Version Management
+# # enable Python Version Management
 # PATH="$HOME/.pyenv/bin:$PATH"
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
@@ -43,12 +53,12 @@ if [ -d "$HOME/man" ] ; then
     MANPATH="$HOME/man:$MANPATH"
 fi
 
-# enable pipenv completion
+# # enable pipenv completion
 # if [ -n "$BASH_VERSION" ]; then
 #     eval "$(pipenv --completion)"
 # fi
 
-# set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
+# # set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
 # if [ -n "$DISPLAY" ]; then
 #     eval "$(askpass)"
 # fi
