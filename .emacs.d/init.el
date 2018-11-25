@@ -24,3 +24,7 @@
 
 ;; (global-set-key (kbd "C-x g") 'magit-status)
 ;; (helm-mode 1)
+
+(add-to-list 'auto-mode-alist '("Pipfile\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("Pipfile.lock\\'" . javascript-mode))
+
