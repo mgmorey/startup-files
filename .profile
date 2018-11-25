@@ -8,6 +8,10 @@
 # for ssh logins, install and configure the libpam-umask package.
 umask 022
 
+EDITOR=emacs
+FLASK_ENV=development
+export EDITOR FLASK_ENV
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -16,10 +20,13 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+# enable Python Package Manager
+PATH="$HOME/.local/bin:$PATH"
+
+# enable Python Version Management
+# PATH="$HOME/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
@@ -36,18 +43,12 @@ if [ -d "$HOME/man" ] ; then
     MANPATH="$HOME/man:$MANPATH"
 fi
 
-# set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
-# if [ -n "$DISPLAY" ]; then
-#     eval `askpass`
-# fi
-
-# enable completion for pipenv
+# enable pipenv completion
 # if [ -n "$BASH_VERSION" ]; then
 #     eval "$(pipenv --completion)"
 # fi
 
-EDITOR=emacs
-FLASK_ENV=development
-MYSQL_HOST=mysql
-MYSQL_PASSWORD=front.242
-export EDITOR FLASK_ENV MYSQL_HOST MYSQL_PASSWORD
+# set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
+# if [ -n "$DISPLAY" ]; then
+#     eval "$(askpass)"
+# fi
