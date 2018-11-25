@@ -45,3 +45,9 @@ fi
 # if [ -n "$BASH_VERSION" ]; then
 #     eval "$(pipenv --completion)"
 # fi
+
+EDITOR=emacs
+FLASK_ENV=development
+MYSQL_HOST=mysql
+MYSQL_PASSWORD=front.242
+export EDITOR FLASK_ENV MYSQL_HOST MYSQL_PASSWORD
