@@ -16,13 +16,13 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-;; (setq inferior-lisp-program "sbcl")
-;; (setq slime-contribs '(slime-fancy))
+(setq inferior-lisp-program "sbcl")
+(setq slime-contribs '(slime-fancy))
 
 ;; (require 'helm-config)
 ;; (require 'slime-autoloads)
 
-;; (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x g") 'magit-status)
 ;; (helm-mode 1)
 
 (add-to-list 'auto-mode-alist '("Pipfile\\'" . conf-mode))
