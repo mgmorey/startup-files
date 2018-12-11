@@ -17,6 +17,8 @@
 (package-initialize)
 
 (setq inferior-lisp-program "sbcl")
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'control)
 (setq slime-contribs '(slime-fancy))
 
 ;; (require 'helm-config)
