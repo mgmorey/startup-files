@@ -8,9 +8,17 @@
 # for ssh logins, install and configure the libpam-umask package.
 umask 022
 
-EDITOR=emacs
-FLASK_ENV=development
-export EDITOR FLASK_ENV
+export EDITOR=emacs
+export FLASK_ENV=development
+
+# export CPPFLAGS="$CPPFLAGS${CPPFLAGS:+ }-I/usr/local/opt/sqlite/include"
+# export CPPFLAGS="$CPPFLAGS${CPPFLAGS:+ }-I/usr/local/opt/zlib/include"
+# export LDFLAGS="$LDFLAGS${LDFLAGS:+ }-L/usr/local/opt/libffi/lib"
+# export LDFLAGS="$LDFLAGS${LDFLAGS:+ }-L/usr/local/opt/sqlite/lib"
+# export LDFLAGS="$LDFLAGS${LDFLAGS:+ }-L/usr/local/opt/zlib/lib"
+# export PKG_CONFIG_PATH="$PKG_CONFIG_PATH${PKG_CONFIG_PATH:+:}/usr/local/opt/libffi/lib/pkgconfig"
+# export PKG_CONFIG_PATH="$PKG_CONFIG_PATH${PKG_CONFIG_PATH:+:}/usr/local/opt/sqlite/lib/pkgconfig"
+# export PKG_CONFIG_PATH="$PKG_CONFIG_PATH${PKG_CONFIG_PATH:+:}/usr/local/opt/zlib/lib/pkgconfig"
 
 # # This file is not read by bash(1) if ~/.bash_profile or ~/.bash_login
 # # exists.
