@@ -49,7 +49,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # eval "$(pyenv virtualenv-init -)"
 
 # # configure environment for Homebrew packages
-# export MANPATH=${MANPATH:-:}
+# export MANPATH=${MANPATH:-$(manpath)}
 
 # for pkg in erlang libffi openssl readline sqlite zlib; do
 #     if [ -d /usr/local/opt/$pkg/include ]; then
