@@ -53,32 +53,32 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # for pkg in erlang libffi openssl readline sqlite zlib; do
 #     if [ -d /usr/local/opt/$pkg/include ]; then
-# 	export CPPFLAGS="$CPPFLAGS${CPPFLAGS:+ }-I/usr/local/opt/$pkg/include"
+# 	export CPPFLAGS="${CPPFLAGS:+$CPPFLAGS }-I/usr/local/opt/$pkg/include"
 #     fi
 #     if [ -d /usr/local/opt/$pkg/lib ]; then
-# 	export LDFLAGS="$LDFLAGS${LDFLAGS:+ }-L/usr/local/opt/$pkg/lib"
+# 	export LDFLAGS="${LDFLAGS:+$LDFLAGS }-L/usr/local/opt/$pkg/lib"
 #     fi
 #     if [ -d /usr/local/opt/$pkg/lib/$pkg/man ] ; then
-# 	export MANPATH="$MANPATH${MANPATH:+:}/usr/local/opt/$pkg/lib/$pkg/man"
+# 	export MANPATH="${MANPATH:+$MANPATH:}/usr/local/opt/$pkg/lib/$pkg/man"
 #     fi
 #     if [ -d /usr/local/opt/$pkg/pkgconfig ]; then
-# 	export PKG_CONFIG_PATH="$PKG_CONFIG_PATH${PKG_CONFIG_PATH:+:}/usr/local/opt/$pkg/lib/pkgconfig"
+# 	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}/usr/local/opt/$pkg/lib/pkgconfig"
 #     fi
 # done
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin:$PATH"
+    export PATH="$HOME/bin${PATH:+:$PATH}"
 fi
 
 # set INFOPATH so it includes user's private info if it exists
 if [ -d "$HOME/info" ] ; then
-    export INFOPATH="$HOME/info:$INFOPATH"
+    export INFOPATH="$HOME/info${INFOPATH:+:$INFOPATH}"
 fi
 
 # set MANPATH so it includes user's private man if it exists
 if [ -d "$HOME/man" ] ; then
-    export MANPATH="$HOME/man:$MANPATH"
+    export MANPATH="$HOME/man${MANPATH:+:$MANPATH}"
 fi
 
 # # set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
