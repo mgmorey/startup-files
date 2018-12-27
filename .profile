@@ -32,7 +32,7 @@ export FLASK_ENV=development
 #     PATH="/usr/local/bin:$PATH"
 # fi
 
-# # enable Python 3.7
+# # enable Python 3.7 as default (first in PATH)
 # export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 
 # enable PyPI packages 
