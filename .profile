@@ -24,19 +24,19 @@ export FLASK_ENV=development
 
 # # set PATH so it includes /usr/gnu/bin if it exists
 # if [ -d "/usr/gnu/bin" ] ; then
-#     PATH="/usr/gnu/bin:$PATH"
+#     PATH="/usr/gnu/bin${PATH:+:$PATH}"
 # fi
 
 # # set PATH so it includes /usr/local/bin if it exists
 # if [ -d "/usr/local/bin" ] ; then
-#     PATH="/usr/local/bin:$PATH"
+#     PATH="/usr/local/bin${PATH:+:$PATH}"
 # fi
 
 # # enable Python 3.7 as default (first in PATH)
-# export PATH="$HOME/Library/Python/3.7/bin:$PATH"
+# export PATH="$HOME/Library/Python/3.7/bin${PATH:+:$PATH}"
 
 # enable PyPI packages 
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin${PATH:+:$PATH}"
 
 # # enable pipenv completion
 # if [ -n "$BASH_VERSION" ]; then
@@ -44,7 +44,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # fi
 
 # # enable pyenv w/ completion
-# export PATH="$HOME/.pyenv/bin:$PATH"
+# export PATH="$HOME/.pyenv/bin${PATH:+:$PATH}"
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
 
