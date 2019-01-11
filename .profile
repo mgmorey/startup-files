@@ -53,16 +53,19 @@ export PATH="$HOME/.local/bin${PATH:+:$PATH}"
 
 # for pkg in erlang libffi openssl readline sqlite zlib; do
 #     if [ -d /usr/local/opt/$pkg/include ]; then
-# 	export CPPFLAGS="${CPPFLAGS:+$CPPFLAGS }-I/usr/local/opt/$pkg/include"
+# 	export CPPFLAGS="-I/usr/local/opt/$pkg/include${CPPFLAGS:+ $CPPFLAGS}"
 #     fi
 #     if [ -d /usr/local/opt/$pkg/lib ]; then
-# 	export LDFLAGS="${LDFLAGS:+$LDFLAGS }-L/usr/local/opt/$pkg/lib"
+# 	export LDFLAGS="-L/usr/local/opt/$pkg/lib${LDFLAGS:+ $LDFLAGS}"
 #     fi
 #     if [ -d /usr/local/opt/$pkg/lib/$pkg/man ] ; then
-# 	export MANPATH="${MANPATH:+$MANPATH:}/usr/local/opt/$pkg/lib/$pkg/man"
+# 	export MANPATH="/usr/local/opt/$pkg/lib/$pkg/man${MANPATH:+:$MANPATH}"
+#     fi
+#     if [ -d /usr/local/opt/$pkg/bin ]; then
+# 	export PATH="/usr/local/opt/$pkg/bin${PATH:+:$PATH}"
 #     fi
 #     if [ -d /usr/local/opt/$pkg/pkgconfig ]; then
-# 	export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}/usr/local/opt/$pkg/lib/pkgconfig"
+# 	export PKG_CONFIG_PATH="/usr/local/opt/$pkg/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
 #     fi
 # done
 
