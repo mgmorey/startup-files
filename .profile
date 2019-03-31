@@ -16,10 +16,10 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# # set PATH so it includes /usr/gnu/bin if it exists
-# if [ -d "/usr/gnu/bin" ] ; then
-#     PATH="/usr/gnu/bin${PATH:+:$PATH}"
-# fi
+# set PATH so it includes /usr/gnu/bin if it exists
+if [ -d "/usr/gnu/bin" ] ; then
+    PATH="/usr/gnu/bin${PATH:+:$PATH}"
+fi
 
 # # configure environment for Homebrew packages
 # export MANPATH=${MANPATH:-$(manpath)}
@@ -42,6 +42,11 @@ fi
 #     fi
 # done
 
+# # set PATH so it includes /usr/local/bin if it exists
+# if [ -d "/usr/local/bin" ] ; then
+#     PATH="/usr/local/bin${PATH:+:$PATH}"
+# fi
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin${PATH:+:$PATH}"
@@ -51,11 +56,6 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     export PATH="$HOME/.local/bin${PATH:+:$PATH}"
 fi
-
-# # set PATH so it includes /usr/local/bin if it exists
-# if [ -d "/usr/local/bin" ] ; then
-#     PATH="/usr/local/bin${PATH:+:$PATH}"
-# fi
 
 # set INFOPATH so it includes user's private info if it exists
 if [ -d "$HOME/info" ] ; then
