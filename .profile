@@ -47,6 +47,11 @@ fi
 #     PATH="/usr/local/bin${PATH:+:$PATH}"
 # fi
 
+# set PATH so it includes user's private Python 3.6 bin if it exists
+if [ -d "$HOME/Library/Python/3.6/bin" ] ; then
+    export PATH="$HOME/Library/Python/3.6/bin${PATH:+:$PATH}"
+fi
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin${PATH:+:$PATH}"
