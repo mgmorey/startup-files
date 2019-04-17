@@ -24,33 +24,36 @@ fi
 # # configure environment for Homebrew packages
 # export MANPATH=${MANPATH:-$(manpath)}
 
-# for pkg in erlang libffi openssl readline sqlite zlib; do
-#     if [ -d /usr/local/opt/$pkg/include ]; then
-# 	export CPPFLAGS="-I/usr/local/opt/$pkg/include${CPPFLAGS:+ $CPPFLAGS}"
-#     fi
-#     if [ -d /usr/local/opt/$pkg/lib ]; then
-# 	export LDFLAGS="-L/usr/local/opt/$pkg/lib${LDFLAGS:+ $LDFLAGS}"
-#     fi
-#     if [ -d /usr/local/opt/$pkg/lib/$pkg/man ] ; then
-# 	export MANPATH="/usr/local/opt/$pkg/lib/$pkg/man${MANPATH:+:$MANPATH}"
-#     fi
-#     if [ -d /usr/local/opt/$pkg/bin ]; then
-# 	export PATH="/usr/local/opt/$pkg/bin${PATH:+:$PATH}"
-#     fi
-#     if [ -d /usr/local/opt/$pkg/pkgconfig ]; then
-# 	export PKG_CONFIG_PATH="/usr/local/opt/$pkg/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
-#     fi
-# done
+for pkg in erlang libffi openssl readline sqlite zlib; do
+    if [ -d /usr/local/opt/$pkg/include ]; then
+	export CPPFLAGS="-I/usr/local/opt/$pkg/include${CPPFLAGS:+ $CPPFLAGS}"
+    fi
+    if [ -d /usr/local/opt/$pkg/lib ]; then
+	export LDFLAGS="-L/usr/local/opt/$pkg/lib${LDFLAGS:+ $LDFLAGS}"
+    fi
+    if [ -d /usr/local/opt/$pkg/lib/$pkg/man ] ; then
+	export MANPATH="/usr/local/opt/$pkg/lib/$pkg/man${MANPATH:+:$MANPATH}"
+    fi
+    if [ -d /usr/local/opt/$pkg/bin ]; then
+	export PATH="/usr/local/opt/$pkg/bin${PATH:+:$PATH}"
+    fi
+    if [ -d /usr/local/opt/$pkg/pkgconfig ]; then
+	export PKG_CONFIG_PATH="/usr/local/opt/$pkg/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
+    fi
+done
 
 # # set PATH so it includes /usr/local/bin if it exists
 # if [ -d "/usr/local/bin" ] ; then
 #     PATH="/usr/local/bin${PATH:+:$PATH}"
 # fi
 
-# set PATH so it includes user's private Python 3.6 bin if it exists
-if [ -d "$HOME/Library/Python/3.6/bin" ] ; then
-    export PATH="$HOME/Library/Python/3.6/bin${PATH:+:$PATH}"
-fi
+# set PATH so it includes user's private Python 3 bin if it exists
+for version in 3.8 3.7 3.6; do
+    if [ -d "$HOME/Library/Python/$version/bin" ] ; then
+	export PATH="$HOME/Library/Python/$version/bin${PATH:+:$PATH}"
+	break
+    fi
+done
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
