@@ -24,7 +24,7 @@ fi
 # # configure environment for Homebrew packages
 # export MANPATH=${MANPATH:-$(manpath)}
 
-for pkg in erlang libffi openssl readline sqlite zlib; do
+for pkg in erlang gdbm gettext git libffi openssl pcre2 python3 readline sqlite3 xz zlib; do
     if [ -d /usr/local/opt/$pkg/include ]; then
 	export CPPFLAGS="-I/usr/local/opt/$pkg/include${CPPFLAGS:+ $CPPFLAGS}"
     fi
