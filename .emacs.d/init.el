@@ -27,7 +27,9 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 ;; (helm-mode 1)
 
-(add-to-list 'auto-mode-alist '("Pipfile\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("Pipfile.lock\\'" . javascript-mode))
+(add-to-list 'auto-mode-alist '("Pipfile\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\.env.*\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\.pylintrc\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("pylintrc\\'" . conf-mode))
 
