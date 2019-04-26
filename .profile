@@ -16,9 +16,14 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# set PATH so it includes /usr/gnu/bin if it exists
-if [ -d "/usr/gnu/bin" ] ; then
+# prepend GNU binaries to PATH
+if [ -d /usr/gnu/bin ] ; then
     PATH="/usr/gnu/bin${PATH:+:$PATH}"
+fi
+
+# prepend GNU coreutils binaries to PATH
+if [ -d /usr/local/opt/coreutils/libexec/gnubin ]; then
+    export PATH="/usr/local/opt/coreutils/libexec/gnubin${PATH:+:$PATH}"
 fi
 
 # # configure environment for Homebrew packages
