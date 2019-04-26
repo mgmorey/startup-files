@@ -39,6 +39,9 @@ for pkg in erlang gdbm gettext git libffi openssl pcre2 python3 readline sqlite3
     if [ -d /usr/local/opt/$pkg/lib/$pkg/man ] ; then
 	export MANPATH="/usr/local/opt/$pkg/lib/$pkg/man${MANPATH:+:$MANPATH}"
     fi
+    if [ -d /usr/local/opt/$pkg/share/man ] ; then
+	export MANPATH="/usr/local/opt/$pkg/share/man${MANPATH:+:$MANPATH}"
+    fi
     if [ -d /usr/local/opt/$pkg/bin ]; then
 	export PATH="/usr/local/opt/$pkg/bin${PATH:+:$PATH}"
     fi
