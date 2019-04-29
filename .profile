@@ -29,7 +29,11 @@ fi
 # # configure environment for Homebrew packages
 # export MANPATH=${MANPATH:-$(manpath)}
 
-for pkg in erlang gdbm gettext git libffi openssl pcre2 python3 readline sqlite3 xz zlib; do
+packages="apr apr-util coreutils curl-openssl erlang gdbm gettext git \
+icu4c libffi libpq openldap openssl pcre2 python3 readline sqlite3 xz \
+zlib"
+
+for pkg in $packages; do
     if [ -d /usr/local/opt/$pkg/include ]; then
 	export CPPFLAGS="-I/usr/local/opt/$pkg/include${CPPFLAGS:+ $CPPFLAGS}"
     fi
