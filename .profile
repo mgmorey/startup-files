@@ -21,10 +21,15 @@ if [ -d /usr/gnu/bin ] ; then
     PATH="/usr/gnu/bin${PATH:+:$PATH}"
 fi
 
-# prepend GNU coreutils binaries to PATH
-if [ -d /usr/local/opt/coreutils/libexec/gnubin ]; then
-    export PATH="/usr/local/opt/coreutils/libexec/gnubin${PATH:+:$PATH}"
+# set PATH so it includes /usr/local/sbin if it exists
+if [ -d "/usr/local/sbin" ] ; then
+    PATH="/usr/local/sbin${PATH:+:$PATH}"
 fi
+
+# # set PATH so it includes /usr/local/bin if it exists
+# if [ -d "/usr/local/bin" ] ; then
+#     PATH="/usr/local/bin${PATH:+:$PATH}"
+# fi
 
 # # configure environment for Homebrew packages
 # export MANPATH=${MANPATH:-$(manpath)}
@@ -53,11 +58,6 @@ for pkg in $packages; do
 	export PKG_CONFIG_PATH="/usr/local/opt/$pkg/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
     fi
 done
-
-# # set PATH so it includes /usr/local/bin if it exists
-# if [ -d "/usr/local/bin" ] ; then
-#     PATH="/usr/local/bin${PATH:+:$PATH}"
-# fi
 
 # set PATH so it includes user's private Python 3 bin if it exists
 for version in 3.8 3.7 3.6; do
