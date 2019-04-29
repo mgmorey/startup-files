@@ -16,10 +16,13 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(setq inferior-lisp-program "sbcl")
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier 'control)
-(setq slime-contribs '(slime-fancy))
+;; (setq mac-command-modifier 'meta)
+;; (setq mac-option-modifier 'control)
+
+;; (setq insert-directory-program "gls" dired-use-ls-dired t)
+
+;; (setq inferior-lisp-program "sbcl")
+;; (setq slime-contribs '(slime-fancy))
 
 ;; (require 'helm-config)
 ;; (require 'slime-autoloads)
@@ -29,7 +32,7 @@
 
 (add-to-list 'auto-mode-alist '("Pipfile.lock\\'" . javascript-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\'" . conf-mode))
-(add-to-list 'auto-mode-alist '("\.env.*\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\.env-*\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("\.pylintrc\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("pylintrc\\'" . conf-mode))
 
