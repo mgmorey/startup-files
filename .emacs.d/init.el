@@ -34,7 +34,7 @@
 
 (add-to-list 'auto-mode-alist '("Pipfile.lock\\'" . javascript-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\'" . conf-mode))
-(add-to-list 'auto-mode-alist '("\.env-*\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\.env-.+\\'" . dotenv-mode))
 (add-to-list 'auto-mode-alist '("\.pylintrc\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("pylintrc\\'" . conf-mode))
 
