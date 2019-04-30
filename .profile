@@ -34,30 +34,28 @@ fi
 # # configure environment for Homebrew packages
 # export MANPATH=${MANPATH:-$(manpath)}
 
-packages="apr apr-util coreutils curl-openssl erlang gdbm gettext git \
-icu4c libffi libpq openldap openssl pcre2 python3 readline sqlite3 xz \
-zlib"
-
-for pkg in $packages; do
-    if [ -d /usr/local/opt/$pkg/include ]; then
-	export CPPFLAGS="-I/usr/local/opt/$pkg/include${CPPFLAGS:+ $CPPFLAGS}"
-    fi
-    if [ -d /usr/local/opt/$pkg/lib ]; then
-	export LDFLAGS="-L/usr/local/opt/$pkg/lib${LDFLAGS:+ $LDFLAGS}"
-    fi
-    if [ -d /usr/local/opt/$pkg/lib/$pkg/man ] ; then
-	export MANPATH="/usr/local/opt/$pkg/lib/$pkg/man${MANPATH:+:$MANPATH}"
-    fi
-    if [ -d /usr/local/opt/$pkg/share/man ] ; then
-	export MANPATH="/usr/local/opt/$pkg/share/man${MANPATH:+:$MANPATH}"
-    fi
-    if [ -d /usr/local/opt/$pkg/bin ]; then
-	export PATH="/usr/local/opt/$pkg/bin${PATH:+:$PATH}"
-    fi
-    if [ -d /usr/local/opt/$pkg/pkgconfig ]; then
-	export PKG_CONFIG_PATH="/usr/local/opt/$pkg/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
-    fi
-done
+# for pkg in $($HOME/bin/brew-list-keg-only 2>/dev/null || true); do
+#     if [ -d /usr/local/opt/$pkg ]; then
+# 	if [ -d /usr/local/opt/$pkg/include ]; then
+# 	    export CPPFLAGS="-I/usr/local/opt/$pkg/include${CPPFLAGS:+ $CPPFLAGS}"
+# 	fi
+# 	if [ -d /usr/local/opt/$pkg/lib ]; then
+# 	    export LDFLAGS="-L/usr/local/opt/$pkg/lib${LDFLAGS:+ $LDFLAGS}"
+# 	fi
+# 	if [ -d /usr/local/opt/$pkg/lib/$pkg/man ] ; then
+# 	    export MANPATH="/usr/local/opt/$pkg/lib/$pkg/man${MANPATH:+:$MANPATH}"
+# 	fi
+# 	if [ -d /usr/local/opt/$pkg/share/man ] ; then
+# 	    export MANPATH="/usr/local/opt/$pkg/share/man${MANPATH:+:$MANPATH}"
+# 	fi
+# 	if [ -d /usr/local/opt/$pkg/bin ]; then
+# 	    export PATH="/usr/local/opt/$pkg/bin${PATH:+:$PATH}"
+# 	fi
+# 	if [ -d /usr/local/opt/$pkg/pkgconfig ]; then
+# 	    export PKG_CONFIG_PATH="/usr/local/opt/$pkg/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
+# 	fi
+#     fi
+# done
 
 # set PATH so it includes user's private Python 3 bin if it exists
 for version in 3.8 3.7 3.6; do
@@ -68,13 +66,13 @@ for version in 3.8 3.7 3.6; do
 done
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin${PATH:+:$PATH}"
+if [ -d "$HOME/.local/bin" ] ; then
+    export PATH="$HOME/.local/bin${PATH:+:$PATH}"
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    export PATH="$HOME/.local/bin${PATH:+:$PATH}"
+if [ -d "$HOME/bin" ] ; then
+    export PATH="$HOME/bin${PATH:+:$PATH}"
 fi
 
 # set INFOPATH so it includes user's private info if it exists
