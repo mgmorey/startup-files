@@ -17,19 +17,46 @@
   ;; You may delete these explanatory comments.
   (package-initialize)
 
-  ;; (setq mac-command-modifier 'meta)
-  ;; (setq mac-option-modifier 'control)
+  ;; ;; Configure helm-mode
+  ;; (require 'helm-config)
+  ;; (helm-mode 1)
 
-  ;; (setq insert-directory-program "gls" dired-use-ls-dired t)
+  ;; ;; Configure magit
+  ;; (global-set-key (kbd "C-x g") 'magit-status)
 
+  ;; ;; Configure mmm-mode
+  ;; (require 'mmm-mode)
+  ;; (setq mmm-global-mode 'maybe)
+  ;; (mmm-add-mode-ext-class nil "\\.php\\'" 'html-php)
+  ;; (mmm-add-classes
+  ;;  '((html-php
+  ;;     :submode php-mode
+  ;;     :front "<\\?\\(php\\)?"
+  ;;     :back "\\?>")))
+  ;; (autoload 'php-mode "php-mode" "PHP editing mode" t)
+  ;; (add-to-list 'auto-mode-alist '("\\.php\\'" . html-mode))
+
+  ;; ;; Configure PHP/Web mode toggle
+  ;; (defun toggle-php-flavor-mode ()
+  ;;   (interactive)
+  ;;   "Toggle mode between PHP & Web-Mode Helper modes"
+  ;;   (cond ((eq major-mode 'php-mode)
+  ;; 	   (web-mode))
+  ;; 	  ((eq major-mode 'web-mode)
+  ;; 	   (php-mode))))
+
+  ;; ;; Set keybinding for PHP/Web mode toggle
+  ;; (global-set-key [f5] 'toggle-php-flavor-mode)
+
+  ;; ;; Configure slime
+  ;; (require 'slime-autoloads)
   ;; (setq inferior-lisp-program "sbcl")
   ;; (setq slime-contribs '(slime-fancy))
 
-  ;; (require 'helm-config)
-  ;; (require 'slime-autoloads)
-
-  (global-set-key (kbd "C-x g") 'magit-status)
-  ;; (helm-mode 1)
+  ;; ;; Configure for macOS
+  ;; (setq insert-directory-program "gls" dired-use-ls-dired t)
+  ;; (setq mac-command-modifier 'meta)
+  ;; (setq mac-option-modifier 'control)
   )
 
 (add-to-list 'auto-mode-alist '("Pipfile.lock\\'" . javascript-mode))
