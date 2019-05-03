@@ -42,10 +42,6 @@
   ;; 	  ((eq major-mode 'web-mode)
   ;; 	   (php-mode))))
 
-  ;; ;; Set global keybindings
-  ;; (global-set-key [f5] 'toggle-php-flavor-mode)
-  ;; (global-set-key (kbd "C-x g") 'magit-status)
-
   ;; ;; Configure slime
   ;; (require 'slime-autoloads)
   ;; (setq inferior-lisp-program "sbcl")
@@ -55,6 +51,10 @@
   ;; (setq insert-directory-program "gls" dired-use-ls-dired t)
   ;; (setq mac-command-modifier 'meta)
   ;; (setq mac-option-modifier 'control)
+
+  ;; ;; Set global keybindings
+  ;; (global-set-key [f5] 'toggle-php-flavor-mode)
+  ;; (global-set-key (kbd "C-x g") 'magit-status)
   )
 
 ;; Default to indenting with spaces (rather than tabs)
