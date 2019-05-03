@@ -21,9 +21,6 @@
   ;; (require 'helm-config)
   ;; (helm-mode 1)
 
-  ;; ;; Configure magit
-  ;; (global-set-key (kbd "C-x g") 'magit-status)
-
   ;; ;; Configure mmm-mode
   ;; (require 'mmm-mode)
   ;; (setq mmm-global-mode 'maybe)
@@ -45,8 +42,9 @@
   ;; 	  ((eq major-mode 'web-mode)
   ;; 	   (php-mode))))
 
-  ;; ;; Set keybinding for PHP/Web mode toggle
+  ;; ;; Set global keybindings
   ;; (global-set-key [f5] 'toggle-php-flavor-mode)
+  ;; (global-set-key (kbd "C-x g") 'magit-status)
 
   ;; ;; Configure slime
   ;; (require 'slime-autoloads)
