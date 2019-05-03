@@ -17,8 +17,8 @@
   ;; You may delete these explanatory comments.
   (package-initialize)
 
-  ;; Configure editorconfig-mode
-  (editorconfig-mode 1)
+  ;; ;; Configure editorconfig-mode
+  ;; (editorconfig-mode 1)
 
   ;; ;; Configure helm-mode
   ;; (require 'helm-config)
