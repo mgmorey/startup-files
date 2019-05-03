@@ -41,9 +41,9 @@
   ;;   (interactive)
   ;;   "Toggle between PHP- and Web-Mode Helper modes"
   ;;   (cond ((eq major-mode 'php-mode)
-  ;;       (web-mode))
-  ;;      ((eq major-mode 'web-mode)
-  ;;       (php-mode))))
+  ;;          (web-mode))
+  ;;         ((eq major-mode 'web-mode)
+  ;;          (php-mode))))
 
   ;; ;; Configure slime
   ;; (require 'slime-autoloads)
