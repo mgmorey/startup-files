@@ -36,15 +36,6 @@
   ;; (autoload 'php-mode "php-mode" "PHP editing mode" t)
   ;; (add-to-list 'auto-mode-alist '("\\.php\\'" . html-mode))
 
-  ;; ;; Configure PHP/Web mode toggle
-  ;; (defun toggle-php-flavor-mode ()
-  ;;   (interactive)
-  ;;   "Toggle between PHP- and Web-Mode Helper modes"
-  ;;   (cond ((eq major-mode 'php-mode)
-  ;;          (web-mode))
-  ;;         ((eq major-mode 'web-mode)
-  ;;          (php-mode))))
-
   ;; ;; Configure slime
   ;; (require 'slime-autoloads)
   ;; (setq inferior-lisp-program "sbcl")
@@ -54,6 +45,15 @@
   ;; (setq insert-directory-program "gls" dired-use-ls-dired t)
   ;; (setq mac-command-modifier 'meta)
   ;; (setq mac-option-modifier 'control)
+
+  ;; ;; Configure PHP/Web mode toggle
+  ;; (defun toggle-php-flavor-mode ()
+  ;;   (interactive)
+  ;;   "Toggle between PHP- and Web-Mode Helper modes"
+  ;;   (cond ((eq major-mode 'php-mode)
+  ;;          (web-mode))
+  ;;         ((eq major-mode 'web-mode)
+  ;;          (php-mode))))
 
   ;; ;; Set global keybindings
   ;; (global-set-key [f5] 'toggle-php-flavor-mode)
