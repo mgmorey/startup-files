@@ -2,8 +2,8 @@
   (require 'package)
 
   (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-		      (not (gnutls-available-p))))
-	 (proto (if no-ssl "http" "https")))
+                      (not (gnutls-available-p))))
+         (proto (if no-ssl "http" "https")))
     ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
     (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
     ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
@@ -16,6 +16,9 @@
   ;; just comment it out by adding a semicolon to the start of the line.
   ;; You may delete these explanatory comments.
   (package-initialize)
+
+  ;; Configure editorconfig-mode
+  (editorconfig-mode 1)
 
   ;; ;; Configure helm-mode
   ;; (require 'helm-config)
@@ -38,9 +41,9 @@
   ;;   (interactive)
   ;;   "Toggle between PHP- and Web-Mode Helper modes"
   ;;   (cond ((eq major-mode 'php-mode)
-  ;; 	   (web-mode))
-  ;; 	  ((eq major-mode 'web-mode)
-  ;; 	   (php-mode))))
+  ;;       (web-mode))
+  ;;      ((eq major-mode 'web-mode)
+  ;;       (php-mode))))
 
   ;; ;; Configure slime
   ;; (require 'slime-autoloads)
@@ -66,4 +69,3 @@
 (add-to-list 'auto-mode-alist '("\.env-.+\\'" . dotenv-mode))
 (add-to-list 'auto-mode-alist '("\.pylintrc\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("pylintrc\\'" . conf-mode))
-
