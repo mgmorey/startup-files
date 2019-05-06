@@ -18,17 +18,17 @@ fi
 
 # prepend GNU binaries to PATH
 if [ -d /usr/gnu/bin ] ; then
-    PATH="/usr/gnu/bin${PATH:+:$PATH}"
+    export PATH="/usr/gnu/bin${PATH:+:$PATH}"
 fi
 
 # set PATH so it includes /usr/local/sbin if it exists
 if [ -d "/usr/local/sbin" ] ; then
-    PATH="/usr/local/sbin${PATH:+:$PATH}"
+    export PATH="/usr/local/sbin${PATH:+:$PATH}"
 fi
 
 # # set PATH so it includes /usr/local/bin if it exists
 # if [ -d "/usr/local/bin" ] ; then
-#     PATH="/usr/local/bin${PATH:+:$PATH}"
+#     export PATH="/usr/local/bin${PATH:+:$PATH}"
 # fi
 
 # # configure environment for Homebrew packages
