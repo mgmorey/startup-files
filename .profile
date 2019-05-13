@@ -34,25 +34,27 @@ fi
 # # configure environment for Homebrew packages
 # export MANPATH=${MANPATH:-$(manpath)}
 
+# prefix=/usr/local/opt
+
 # for pkg in $($HOME/bin/brew-list-keg-only 2>/dev/null || true); do
-#     if [ -d /usr/local/opt/$pkg ]; then
-# 	if [ -d /usr/local/opt/$pkg/include ]; then
-# 	    export CPPFLAGS="-I/usr/local/opt/$pkg/include${CPPFLAGS:+ $CPPFLAGS}"
+#     if [ -d $prefix/$pkg ]; then
+# 	if [ -d $prefix/$pkg/include ]; then
+# 	    export CPPFLAGS="-I$prefix/$pkg/include${CPPFLAGS:+ $CPPFLAGS}"
 # 	fi
-# 	if [ -d /usr/local/opt/$pkg/lib ]; then
-# 	    export LDFLAGS="-L/usr/local/opt/$pkg/lib${LDFLAGS:+ $LDFLAGS}"
+# 	if [ -d $prefix/$pkg/lib ]; then
+# 	    export LDFLAGS="-L$prefix/$pkg/lib${LDFLAGS:+ $LDFLAGS}"
 # 	fi
-# 	if [ -d /usr/local/opt/$pkg/lib/$pkg/man ] ; then
-# 	    export MANPATH="/usr/local/opt/$pkg/lib/$pkg/man${MANPATH:+:$MANPATH}"
+# 	if [ -d $prefix/$pkg/lib/$pkg/man ] ; then
+# 	    export MANPATH="$prefix/$pkg/lib/$pkg/man${MANPATH:+:$MANPATH}"
 # 	fi
-# 	if [ -d /usr/local/opt/$pkg/share/man ] ; then
-# 	    export MANPATH="/usr/local/opt/$pkg/share/man${MANPATH:+:$MANPATH}"
+# 	if [ -d $prefix/$pkg/share/man ] ; then
+# 	    export MANPATH="$prefix/$pkg/share/man${MANPATH:+:$MANPATH}"
 # 	fi
-# 	if [ -d /usr/local/opt/$pkg/bin ]; then
-# 	    export PATH="/usr/local/opt/$pkg/bin${PATH:+:$PATH}"
+# 	if [ -d $prefix/$pkg/bin ]; then
+# 	    export PATH="$prefix/$pkg/bin${PATH:+:$PATH}"
 # 	fi
-# 	if [ -d /usr/local/opt/$pkg/pkgconfig ]; then
-# 	    export PKG_CONFIG_PATH="/usr/local/opt/$pkg/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
+# 	if [ -d $prefix/$pkg/lib/pkgconfig ]; then
+# 	    export PKG_CONFIG_PATH="$prefix/$pkg/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
 # 	fi
 #     fi
 # done
