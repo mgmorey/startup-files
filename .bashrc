@@ -73,7 +73,16 @@ xterm*|rxvt*)
 esac
 
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
+if [ -x /usr/local/bin/gdircolors ]; then
+    test -r ~/.dircolors && eval "$(gdircolors -b ~/.gdircolors)" || eval "$(gdircolors -b)"
+    alias ls='gls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    #alias grep='ggrep --color=auto'
+    #alias fgrep='gfgrep --color=auto'
+    #alias egrep='gegrep --color=auto'
+elif [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
@@ -83,6 +92,9 @@ if [ -x /usr/bin/dircolors ]; then
     #alias fgrep='fgrep --color=auto'
     #alias egrep='egrep --color=auto'
 fi
+
+# colored CLI output on macOS
+export CLICOLOR=YES
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
