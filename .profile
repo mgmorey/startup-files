@@ -68,13 +68,13 @@ for version in 3.8 3.7 3.6; do
 done
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    export PATH="$HOME/.local/bin${PATH:+:$PATH}"
+if [ -d "$HOME/bin" ] ; then
+    export PATH="$HOME/bin${PATH:+:$PATH}"
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin${PATH:+:$PATH}"
+if [ -d "$HOME/.local/bin" ] ; then
+    export PATH="$HOME/.local/bin${PATH:+:$PATH}"
 fi
 
 # set INFOPATH so it includes user's private info if it exists
