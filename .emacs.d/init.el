@@ -17,6 +17,9 @@
   ;; You may delete these explanatory comments.
   (package-initialize)
 
+  ;; ;; Configure docker-cli
+  ;; (require 'docker-cli)
+
   ;; ;; Configure editorconfig-mode
   ;; (editorconfig-mode 1)
 
