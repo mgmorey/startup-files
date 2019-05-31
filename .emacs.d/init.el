@@ -17,6 +17,11 @@
   ;; You may delete these explanatory comments.
   (package-initialize)
 
+  ;; (add-to-list 'load-path "~/.emacs.d/lisp/")
+
+  ;; ;; Configure apex-mode
+  ;; (require 'apex-mode)
+
   ;; ;; Configure docker-cli
   ;; (require 'docker-cli)
 
