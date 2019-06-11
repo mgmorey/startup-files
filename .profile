@@ -16,6 +16,11 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+# set LD_LIBRARY_PATH so it includes /usr/local/lib if it exists
+if [ -d "/usr/local/lib" ] ; then
+    export LD_LIBRARY_PATH="/usr/local/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+fi
+
 # prepend GNU binaries to PATH
 if [ -d /usr/gnu/bin ] ; then
     export PATH="/usr/gnu/bin${PATH:+:$PATH}"
