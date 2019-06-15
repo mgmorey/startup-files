@@ -17,7 +17,7 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set LD_LIBRARY_PATH so it includes /usr/local/lib if it exists
-if [ -d "/usr/local/lib" ] ; then
+if [ -d /usr/local/lib ] ; then
     export LD_LIBRARY_PATH="/usr/local/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
 fi
 
@@ -27,7 +27,7 @@ if [ -d /usr/gnu/bin ] ; then
 fi
 
 # set PATH so it includes /usr/local/sbin if it exists
-if [ -d "/usr/local/sbin" ] ; then
+if [ -d /usr/local/sbin ] ; then
     export PATH="/usr/local/sbin${PATH:+:$PATH}"
 fi
 
