@@ -21,6 +21,7 @@ for dir in $(ls -d /opt/local /opt/pkg /usr/pkg 2>/dev/null || true); do
     export PATH="$dir/bin${PATH:+:$PATH}"
     export PATH="$dir/sbin${PATH:+:$PATH}"
     export INFOPATH="$dir/info${INFOPATH:+:$INFOPATH}"
+    export MANPATH="$dir/man${MANPATH:+:$MANPATH}"
 done
 
 # prepend GNU binaries to PATH
