@@ -23,8 +23,7 @@ fi
 
 # set paths so they include include pkgsrc directories (if they exist)
 for dir in $(ls -d /opt/local /opt/pkg /usr/pkg 2>/dev/null || true); do
-    export PATH="$dir/bin${PATH:+:$PATH}"
-    export PATH="$dir/sbin${PATH:+:$PATH}"
+    export PATH="$dir/bin:$dir/sbin${PATH:+:$PATH}"
     export INFOPATH="$dir/info${INFOPATH:+:$INFOPATH}"
     export MANPATH="$dir/man${MANPATH:+:$MANPATH}"
 done
