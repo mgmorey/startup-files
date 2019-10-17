@@ -59,31 +59,31 @@ if [ "${USER_PROFILE_SOURCED-false}" = false ]; then
 	export MANPATH="$HOME/man${MANPATH:+:$MANPATH}"
     fi
 
-    # # enable pipenv completion
-    # case $- in
-    #     *i*)
-    # 	if [ -n "$BASH_VERSION" ]; then
-    # 	    eval "$(pipenv --completion)"
-    # 	fi
-    # 	;;
-    # esac
-
-    # # enable pyenv w/ completion
-    # export PATH="$HOME/.pyenv/bin${PATH:+:$PATH}"
-    # case $- in
-    #     *i*)
-    # 	eval "$(pyenv init -)"
-    # 	eval "$(pyenv virtualenv-init -)"
-    # 	;;
-    # esac
-
-    # # set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
-    # if [ -n "$DISPLAY" ]; then
-    #     eval "$(askpass)"
-    # fi
-
     export EDITOR=emacs
     export FLASK_ENV=development
 
     export USER_PROFILE_SOURCED=true
 fi
+
+# # enable pipenv completion
+# case $- in
+#     *i*)
+# 	if [ -n "$BASH_VERSION" ]; then
+# 	    eval "$(pipenv --completion)"
+# 	fi
+# 	;;
+# esac
+
+# # enable pyenv w/ completion
+# export PATH="$HOME/.pyenv/bin${PATH:+:$PATH}"
+# case $- in
+#     *i*)
+# 	eval "$(pyenv init -)"
+# 	eval "$(pyenv virtualenv-init -)"
+# 	;;
+# esac
+
+# # set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
+# if [ -n "$DISPLAY" ]; then
+#     eval "$(askpass)"
+# fi
