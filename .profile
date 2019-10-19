@@ -9,7 +9,7 @@
 
 umask 022
 
-if [ "${USER_PROFILE_SOURCED-false}" = false ]; then
+# if [ "${USER_PROFILE_SOURCED-false}" = false ]; then
 
     # if running bash
     if [ -n "$BASH_VERSION" ]; then
@@ -62,8 +62,8 @@ if [ "${USER_PROFILE_SOURCED-false}" = false ]; then
     export EDITOR=emacs
     export FLASK_ENV=development
 
-    export USER_PROFILE_SOURCED=true
-fi
+#     export USER_PROFILE_SOURCED=true
+# fi
 
 # # enable pipenv completion
 # case $- in
