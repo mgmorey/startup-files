@@ -20,11 +20,11 @@ umask 022
     fi
 
     if [ -z "${INFOPATH-}" -a -d /usr/share/info ]; then
-	export INFOPATH=/usr/share/info
+	export INFOPATH=/usr/local/share/info:/usr/share/info
     fi
 
     if [ -z "${MANPATH-}" -a -d /usr/share/man ]; then
-	export MANPATH=/usr/share/man
+	export MANPATH=/usr/local/share/man:/usr/share/man
     fi
 
     # set PATH so it includes /usr/lib/cups/bin if it exists
@@ -39,15 +39,18 @@ umask 022
 	export MANPATH="$dir/man${MANPATH:+:$MANPATH}"
     done
 
+    # set PATH so it includes /usr/local/sbin if it exists
+    if [ -d /usr/local/sbin ] ; then
+        export PATH="/usr/local/sbin${PATH:+:$PATH}"
+    fi
+
     # set PATH so it includes user's private bin if it exists
     if [ -d "$HOME/bin" ] ; then
 	export PATH="$HOME/bin${PATH:+:$PATH}"
     fi
 
-    # set PATH so it includes user's private bin if it exists
-    if [ -d "$HOME/.local/bin" ] ; then
-	export PATH="$HOME/.local/bin${PATH:+:$PATH}"
-    fi
+    # set PATH so it includes user's private .local/bin
+    export PATH="$HOME/.local/bin${PATH:+:$PATH}"
 
     # set INFOPATH so it includes user's private info if it exists
     if [ -d "$HOME/info" ] ; then
@@ -59,31 +62,31 @@ umask 022
 	export MANPATH="$HOME/man${MANPATH:+:$MANPATH}"
     fi
 
+    # # enable pipenv completion
+    # case $- in
+    #     *i*)
+    #	if [ -n "$BASH_VERSION" ]; then
+    #	    eval "$(pipenv --completion)"
+    #	fi
+    #	;;
+    # esac
+
+    # # enable pyenv w/ completion
+    # export PATH="$HOME/.pyenv/bin${PATH:+:$PATH}"
+    # case $- in
+    #     *i*)
+    #	eval "$(pyenv init -)"
+    #	eval "$(pyenv virtualenv-init -)"
+    #	;;
+    # esac
+
+    # # set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
+    # if [ -n "$DISPLAY" ]; then
+    #     eval "$(askpass)"
+    # fi
+
     export EDITOR=emacs
     export FLASK_ENV=development
 
 #     export USER_PROFILE_SOURCED=true
-# fi
-
-# # enable pipenv completion
-# case $- in
-#     *i*)
-# 	if [ -n "$BASH_VERSION" ]; then
-# 	    eval "$(pipenv --completion)"
-# 	fi
-# 	;;
-# esac
-
-# # enable pyenv w/ completion
-# export PATH="$HOME/.pyenv/bin${PATH:+:$PATH}"
-# case $- in
-#     *i*)
-# 	eval "$(pyenv init -)"
-# 	eval "$(pyenv virtualenv-init -)"
-# 	;;
-# esac
-
-# # set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
-# if [ -n "$DISPLAY" ]; then
-#     eval "$(askpass)"
 # fi
