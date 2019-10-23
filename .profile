@@ -46,7 +46,7 @@ umask 022
 
     # set PATH so it includes /usr/local/sbin if it exists
     if [ -d /usr/local/sbin ] ; then
-        export PATH="/usr/local/sbin${PATH:+:$PATH}"
+	export PATH="/usr/local/sbin${PATH:+:$PATH}"
     fi
 
     # set PATH so it includes user's private bin if it exists
