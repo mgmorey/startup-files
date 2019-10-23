@@ -49,6 +49,42 @@ umask 022
 	export PATH="/usr/local/sbin${PATH:+:$PATH}"
     fi
 
+    # # configure environment for Homebrew packages
+    # export MANPATH=${MANPATH:-$(manpath)}
+
+    # prefix=/usr/local/opt
+
+    # for pkg in $($HOME/bin/brew-list-keg-only 2>/dev/null || true); do
+    #     if [ -d $prefix/$pkg ]; then
+    # 	if [ -d $prefix/$pkg/include ]; then
+    # 	    export CPPFLAGS="-I$prefix/$pkg/include${CPPFLAGS:+ $CPPFLAGS}"
+    # 	fi
+    # 	if [ -d $prefix/$pkg/lib ]; then
+    # 	    export LDFLAGS="-L$prefix/$pkg/lib${LDFLAGS:+ $LDFLAGS}"
+    # 	fi
+    # 	if [ -d $prefix/$pkg/lib/$pkg/man ] ; then
+    # 	    export MANPATH="$prefix/$pkg/lib/$pkg/man${MANPATH:+:$MANPATH}"
+    # 	fi
+    # 	if [ -d $prefix/$pkg/share/man ] ; then
+    # 	    export MANPATH="$prefix/$pkg/share/man${MANPATH:+:$MANPATH}"
+    # 	fi
+    # 	if [ -d $prefix/$pkg/bin ]; then
+    # 	    export PATH="$prefix/$pkg/bin${PATH:+:$PATH}"
+    # 	fi
+    # 	if [ -d $prefix/$pkg/lib/pkgconfig ]; then
+    # 	    export PKG_CONFIG_PATH="$prefix/$pkg/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
+    # 	fi
+    #     fi
+    # done
+
+    # # set PATH so it includes user's private Python 3 bin if it exists
+    # for version in 3.8 3.7 3.6; do
+    # 	if [ -d "$HOME/Library/Python/$version/bin" ] ; then
+    # 	    export PATH="$HOME/Library/Python/$version/bin${PATH:+:$PATH}"
+    # 	    break
+    # 	fi
+    # done
+
     # set PATH so it includes user's private bin if it exists
     if [ -d "$HOME/bin" ] ; then
 	export PATH="$HOME/bin${PATH:+:$PATH}"
