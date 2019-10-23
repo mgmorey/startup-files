@@ -39,6 +39,11 @@ umask 022
 	export MANPATH="$dir/man${MANPATH:+:$MANPATH}"
     done
 
+    # prepend GNU binaries to PATH
+    if [ -d /usr/gnu/bin ] ; then
+	export PATH="/usr/gnu/bin${PATH:+:$PATH}"
+    fi
+
     # set PATH so it includes /usr/local/sbin if it exists
     if [ -d /usr/local/sbin ] ; then
         export PATH="/usr/local/sbin${PATH:+:$PATH}"
