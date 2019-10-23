@@ -19,12 +19,24 @@ umask 022
 	fi
     fi
 
-    if [ -z "${INFOPATH-}" -a -d /usr/share/info ]; then
-	export INFOPATH=/usr/local/share/info:/usr/share/info
+    if [ -z "${INFOPATH-}" ]; then
+	export INFOPATH=/usr/share/info
+
+	for dir in /usr/share/local/info /usr/local/info; do
+	    if [ -d $dir ]; then
+		export INFOPATH=$dir:$INFOPATH
+	    fi
+	done
     fi
 
-    if [ -z "${MANPATH-}" -a -d /usr/share/man ]; then
-	export MANPATH=/usr/local/share/man:/usr/share/man
+    if [ -z "${MANPATH-}" ]; then
+	export MANPATH=/usr/share/man
+
+	for dir in /usr/share/local/man /usr/local/man; do
+	    if [ -d $dir ]; then
+		export MANPATH=$dir:$MANPATH
+	    fi
+	done
     fi
 
     # set PATH so it includes /usr/lib/cups/bin if it exists
