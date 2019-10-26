@@ -9,142 +9,46 @@
 
 umask 022
 
-# if [ "${USER_PROFILE_SOURCED-false}" = false ]; then
-
-    # if running bash
-    if [ -n "$BASH_VERSION" ]; then
-        # include .bashrc if it exists
-        if [ -f "$HOME/.bashrc" ]; then
-            . "$HOME/.bashrc"
-        fi
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
     fi
+fi
 
-    if [ -z "${INFOPATH-}" ]; then
-        export INFOPATH=/usr/share/info
+# set profile parameters
+if [ -x "$HOME/bin/set-parameters" ]; then
+    eval "$($HOME/bin/set-parameters)"
+fi
 
-        for dir in /usr/share/local/info /usr/local/info; do
-            if [ -d $dir ]; then
-                export INFOPATH=$dir:$INFOPATH
+# enable pipenv completion
+if [ -x $HOME/.local/bin/pipenv ]; then
+    case $- in
+        *i*)
+            if [ -n "$BASH_VERSION" ]; then
+                eval "$(pipenv --completion)"
             fi
-        done
-    fi
+            ;;
+    esac
+fi
 
-    if [ -z "${MANPATH-}" ]; then
-        export MANPATH=/usr/share/man
+# enable pyenv w/ completion
+if [ -x $HOME/.pyenv/bin/pyenv ]; then
+    export PATH="$HOME/.pyenv/bin${PATH:+:$PATH}"
 
-        for dir in /usr/share/local/man /usr/local/man; do
-            if [ -d $dir ]; then
-                export MANPATH=$dir:$MANPATH
-            fi
-        done
-    fi
+    case $- in
+        *i*)
+            eval "$(pyenv init -)"
+            eval "$(pyenv virtualenv-init -)"
+            ;;
+    esac
+fi
 
-    # set PATH so it includes /usr/lib/cups/bin if it exists
-    if [ -d "/usr/lib/cups/bin" ] ; then
-        export PATH="/usr/lib/cups/bin${PATH:+:$PATH}"
-    fi
-
-    # set paths so they include include pkgsrc directories (if they exist)
-    for dir in $(ls -d /opt/local /opt/pkg /usr/pkg 2>/dev/null || true); do
-        export PATH="$dir/bin:$dir/sbin${PATH:+:$PATH}"
-        export INFOPATH="$dir/info${INFOPATH:+:$INFOPATH}"
-        export MANPATH="$dir/man${MANPATH:+:$MANPATH}"
-    done
-
-    # prepend GNU binaries to PATH
-    if [ -d /usr/gnu/bin ] ; then
-        export PATH="/usr/gnu/bin${PATH:+:$PATH}"
-    fi
-
-    # set PATH so it includes /usr/local/sbin if it exists
-    if [ -d /usr/local/sbin ] ; then
-        export PATH="/usr/local/sbin${PATH:+:$PATH}"
-    fi
-
-    # # configure environment for Homebrew packages
-    # export MANPATH=${MANPATH:-$(manpath)}
-
-    # prefix=/usr/local/opt
-
-    # for pkg in $($HOME/bin/brew-list-keg-only 2>/dev/null || true); do
-    #     if [ -d $prefix/$pkg ]; then
-    #   if [ -d $prefix/$pkg/include ]; then
-    #       export CPPFLAGS="-I$prefix/$pkg/include${CPPFLAGS:+ $CPPFLAGS}"
-    #   fi
-    #   if [ -d $prefix/$pkg/lib ]; then
-    #       export LDFLAGS="-L$prefix/$pkg/lib${LDFLAGS:+ $LDFLAGS}"
-    #   fi
-    #   if [ -d $prefix/$pkg/lib/$pkg/man ] ; then
-    #       export MANPATH="$prefix/$pkg/lib/$pkg/man${MANPATH:+:$MANPATH}"
-    #   fi
-    #   if [ -d $prefix/$pkg/share/man ] ; then
-    #       export MANPATH="$prefix/$pkg/share/man${MANPATH:+:$MANPATH}"
-    #   fi
-    #   if [ -d $prefix/$pkg/bin ]; then
-    #       export PATH="$prefix/$pkg/bin${PATH:+:$PATH}"
-    #   fi
-    #   if [ -d $prefix/$pkg/lib/pkgconfig ]; then
-    #       export PKG_CONFIG_PATH="$prefix/$pkg/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
-    #   fi
-    #     fi
-    # done
-
-    # # set PATH so it includes user's private Python 3 bin if it exists
-    # for version in 3.8 3.7 3.6; do
-    #   if [ -d "$HOME/Library/Python/$version/bin" ] ; then
-    #       export PATH="$HOME/Library/Python/$version/bin${PATH:+:$PATH}"
-    #       break
-    #   fi
-    # done
-
-    # set PATH so it includes user's private bin if it exists
-    if [ -d "$HOME/bin" ] ; then
-        export PATH="$HOME/bin${PATH:+:$PATH}"
-    fi
-
-    # set PATH so it includes user's private .local/bin
-    export PATH="$HOME/.local/bin${PATH:+:$PATH}"
-
-    # set INFOPATH so it includes user's private info if it exists
-    if [ -d "$HOME/info" ] ; then
-        export INFOPATH="$HOME/info${INFOPATH:+:$INFOPATH}"
-    fi
-
-    # set MANPATH so it includes user's private man if it exists
-    if [ -d "$HOME/man" ] ; then
-        export MANPATH="$HOME/man${MANPATH:+:$MANPATH}"
-    fi
-
-    # enable pipenv completion
-    if [ -x $HOME/.local/bin/pipenv ]; then
-        case $- in
-            *i*)
-                if [ -n "$BASH_VERSION" ]; then
-                    eval "$(pipenv --completion)"
-                fi
-                ;;
-        esac
-    fi
-
-    # enable pyenv w/ completion
-    if [ -x $HOME/.pyenv/bin/pyenv ]; then
-        export PATH="$HOME/.pyenv/bin${PATH:+:$PATH}"
-
-        case $- in
-            *i*)
-                eval "$(pyenv init -)"
-                eval "$(pyenv virtualenv-init -)"
-                ;;
-        esac
-    fi
-
-    # # set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
-    # if [ -n "$DISPLAY" ]; then
-    #     eval "$(askpass)"
-    # fi
-
-    export EDITOR=emacs
-    export FLASK_ENV=development
-
-#     export USER_PROFILE_SOURCED=true
+# # set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
+# if [ -n "$DISPLAY" ]; then
+#     eval "$(askpass)"
 # fi
+
+export EDITOR=emacs
+export FLASK_ENV=development
