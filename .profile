@@ -115,23 +115,28 @@ umask 022
         export MANPATH="$HOME/man${MANPATH:+:$MANPATH}"
     fi
 
-    # # enable pipenv completion
-    # case $- in
-    #     *i*)
-    #	if [ -n "$BASH_VERSION" ]; then
-    #	    eval "$(pipenv --completion)"
-    #	fi
-    #	;;
-    # esac
+    # enable pipenv completion
+    if [ -x $HOME/.local/bin/pipenv ]; then
+        case $- in
+            *i*)
+                if [ -n "$BASH_VERSION" ]; then
+                    eval "$(pipenv --completion)"
+                fi
+                ;;
+        esac
+    fi
 
-    # # enable pyenv w/ completion
-    # export PATH="$HOME/.pyenv/bin${PATH:+:$PATH}"
-    # case $- in
-    #     *i*)
-    #	eval "$(pyenv init -)"
-    #	eval "$(pyenv virtualenv-init -)"
-    #	;;
-    # esac
+    # enable pyenv w/ completion
+    if [ -x $HOME/.pyenv/bin/pyenv ]; then
+        export PATH="$HOME/.pyenv/bin${PATH:+:$PATH}"
+
+        case $- in
+            *i*)
+                eval "$(pyenv init -)"
+                eval "$(pyenv virtualenv-init -)"
+                ;;
+        esac
+    fi
 
     # # set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
     # if [ -n "$DISPLAY" ]; then
