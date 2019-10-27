@@ -9,6 +9,9 @@
 
 umask 022
 
+export EDITOR=emacs
+export FLASK_ENV=development
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -20,6 +23,11 @@ fi
 # set profile parameters
 if [ -x "$HOME/bin/set-parameters" ]; then
     eval "$($HOME/bin/set-parameters)"
+fi
+
+# set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
+if [ -n "$DISPLAY" ]; then
+    eval "$(askpass 2>/dev/null || true)"
 fi
 
 # enable pipenv completion
@@ -42,11 +50,3 @@ if [ -x $HOME/.pyenv/bin/pyenv ]; then
             ;;
     esac
 fi
-
-# # set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
-# if [ -n "$DISPLAY" ]; then
-#     eval "$(askpass)"
-# fi
-
-export EDITOR=emacs
-export FLASK_ENV=development
