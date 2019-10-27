@@ -35,8 +35,6 @@ fi
 
 # enable pyenv w/ completion
 if [ -x $HOME/.pyenv/bin/pyenv ]; then
-    export PATH="$HOME/.pyenv/bin${PATH:+:$PATH}"
-
     case $- in
         *i*)
             eval "$(pyenv init -)"
