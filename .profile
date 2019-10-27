@@ -25,11 +25,6 @@ if [ -x "$HOME/bin/set-parameters" ]; then
     eval "$($HOME/bin/set-parameters)"
 fi
 
-# set GIT_ASKPASS, SSH_ASKPASS and SUDO_ASKPASS
-if [ -n "$DISPLAY" ]; then
-    eval "$(askpass 2>/dev/null || true)"
-fi
-
 # enable pipenv completion
 if [ -x $HOME/.local/bin/pipenv ]; then
     case $- in
