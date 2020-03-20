@@ -44,6 +44,13 @@
   ;; (autoload 'php-mode "php-mode" "PHP editing mode" t)
   ;; (add-to-list 'auto-mode-alist '("\\.php\\'" . html-mode))
 
+  ;; ;; Configure ps-print to use Ghostscript on Windows
+  ;; (setq ps-printer-name t)
+  ;; (setq ps-lpr-command "gswin64c.exe")
+  ;; (setq ps-lpr-switches '("-q" "-dNOPAUSE" "-dBATCH"
+  ;;                         "-sDEVICE=mswinpr2"
+  ;;                         "-sPAPERSIZE=letter"))
+
   ;; ;; Configure slime
   ;; (require 'slime-autoloads)
   ;; (setq inferior-lisp-program "sbcl")
