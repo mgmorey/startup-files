@@ -117,18 +117,21 @@ fi
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
 fi
 
 # Some people don't like fortune. If you uncomment the following lines,
 # you will have a fortune each time you log in ;-)
 
-# if [ -x /usr/bin/fortune ] ; then
-#    echo
-#    /usr/bin/fortune
-#    echo
-# fi
+for fortune in /usr/bin/fortune /usr/games/fortune; do
+    if [ -x $fortune ] ; then
+        echo
+        $fortune
+        echo
+        break
+    fi
+done

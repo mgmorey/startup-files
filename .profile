@@ -29,7 +29,7 @@ if [ -x "$HOME/bin/set-parameters" ]; then
 fi
 
 # enable pipenv completion
-if [ -x $HOME/.local/bin/pipenv ]; then
+if which pipenv >/dev/null 2>&1; then
     case $- in
         *i*)
             if [ -n "$BASH_VERSION" ]; then
@@ -40,7 +40,7 @@ if [ -x $HOME/.local/bin/pipenv ]; then
 fi
 
 # enable pyenv w/ completion
-if [ -x $HOME/.pyenv/bin/pyenv ]; then
+if which pyenv >/dev/null 2>&1; then
     case $- in
         *i*)
             eval "$(pyenv init -)"
