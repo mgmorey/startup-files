@@ -10,11 +10,11 @@ bindkey -d -k kb
 bindkey -k kD
 bindkey -d -k kD
 
+# ## Enable 256 colors
+# term screen-256color
+
 # ## Fix control-arrow key combinations
 # bindkey -k ku stuff ^[OA
 # bindkey -k kd stuff ^[OB
 # bindkey -k kr stuff ^[OC
 # bindkey -k kl stuff ^[OD
-
-# ## Enable 256 colors
-# term screen-256color
