@@ -79,6 +79,7 @@
 (setq-default indent-tabs-mode nil)
 
 ;; Override default major mode according to file name pattern
+(add-to-list 'auto-mode-alist '(".+\.fish\\'" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("Pipfile.lock\\'" . javascript-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("\.env-.+\\'" . dotenv-mode))
