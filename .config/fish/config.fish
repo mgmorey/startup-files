@@ -1,16 +1,19 @@
 # ~/.config/fish/config.fish
-# -*- Mode: Shell-script -*-
 
 set -x EDITOR emacs
 set -x FLASK_ENV development
 
-function newline_to_semicolon
+function filter_fish
     tr '\n' ';'
 end
 
-eval (~/bin/set-parameters | newline_to_semicolon)
+eval (~/bin/set-parameters | filter_fish)
+
+if which pipenv >/dev/null 2>&1
+    eval (pipenv --completion | filter_fish)
+end
 
 if which pyenv >/dev/null 2>&1
-    eval (pyenv init - | newline_to_semicolon)
-    eval (pyenv virtualenv-init - | newline_to_semicolon)
+    eval (pyenv init - | filter_fish)
+    eval (pyenv virtualenv-init - | filter_fish)
 end
