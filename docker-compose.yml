@@ -1,0 +1,100 @@
+# docker-compose.yml
+
+version: '3'
+
+services:
+
+    # hanaexpress:
+    #     image: store/saplabs/hanaexpress
+    #     env_file: .env-sap-hana
+    #     ports:
+    #         - 39013:39013
+    #         - 39017:39017
+    #         - 39041-39045:39041-39045
+    #         - 1128-1129:1128-1129
+    #         - 59013-59014:59013-59014
+    #     volumes:
+    #         - /data/sap-hana:/hana/mounts
+    #         - ~/git/tableau-docker-sap-hana/ee2/data:/mnt-data
+    #         - ~/git/tableau-docker-sap-hana/ee2/scripts:/mnt-scripts
+    #         - ~/git/tableau-docker-sap-hana/ee2/sql:/mnt-sql
+
+    # mssql:
+    #     image: mcr.microsoft.com/mssql/server:2019-latest
+    #     env_file: .env-mssql
+    #     ports:
+    #         - 1433:1433
+
+    # mysql:
+    #     image: mysql:8
+    #     env_file: .env-mysql
+    #     ports:
+    #         - 3306:3306
+
+    # oracle:
+    #     image: oracle/database:19.3.0-se2
+    #     env_file: .env-oracle
+    #     ports:
+    #         - 1521:1521
+    #         - 5500:5500
+    #     # volumes:
+    #     #     - ~/oracle/scripts:/opt/oracle/scripts
+
+    # oraclelinux:
+    #     image: oraclelinux:7-slim
+
+    # postgres:
+    #     image: postgres:11
+    #     env_file: .env-postgres
+    #     ports:
+    #         - 5432:5432
+
+    # tableau-mssql-2012:
+    #     image: tableau-mssql-2012
+    #     env_file: .env-tableau-mssql
+    #     ports:
+    #         - 1433:1433
+
+    # tableau-oracle-12:
+    #     image: artifactory.prod.tableautools.com:6555/dataservices/tableau-oracle-12
+    #     env_file: .env-tableau-oracle
+    #     ports:
+    #         - 1521:1521
+    #         - 5500:5500
+    #     volumes:
+    #         - ~/git/tableau/docker-oracle/12/scripts:/home/oracle/bin
+    #         - ~/oracle/scripts:/opt/oracle/scripts
+
+    # tableau-oracle-18:
+    #     image: artifactory.prod.tableautools.com:6555/dataservices/tableau-oracle-18
+    #     env_file: .env-tableau-oracle
+    #     ports:
+    #         - 1521:1521
+    #         - 5500:5500
+    #     # volumes:
+    #     #     - ~/git/tableau/docker-oracle/18/scripts:/home/oracle/bin
+    #     #     - ~/oracle/scripts:/opt/oracle/scripts
+
+    # tableau-oracle-19:
+    #     image: artifactory.prod.tableautools.com:6555/dataservices/tableau-oracle-19
+    #     env_file: .env-tableau-oracle
+    #     ports:
+    #         - 1521:1521
+    #         - 5500:5500
+    #     volumes:
+    #         - ~/git/tableau/docker-oracle/19/scripts:/home/oracle/bin
+    #         - ~/oracle/scripts:/opt/oracle/scripts
+
+    tableau-sap-hana-ee2:
+        image: tableau-sap-hana-ee2
+        env_file: .env-tableau-sap-hana
+        ports:
+            - 1128-1129:1128-1129
+            - 39013:39013
+            - 39017:39017
+            - 39041-39045:39041-39045
+            - 59013-59014:59013-59014
+        volumes:
+            - ~/git/tableau/docker-sap-hana/ee2/data:/mnt/data
+            - ~/git/tableau/docker-sap-hana/ee2/scripts:/mnt/scripts
+            - ~/git/tableau/docker-sap-hana/ee2/sql:/mnt/sql
