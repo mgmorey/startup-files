@@ -15,9 +15,9 @@ services:
     #         - 59013-59014:59013-59014
     #     volumes:
     #         - /data/sap-hana:/hana/mounts
-    #         - ~/git/tableau-docker-sap-hana/ee2/data:/mnt-data
-    #         - ~/git/tableau-docker-sap-hana/ee2/scripts:/mnt-scripts
-    #         - ~/git/tableau-docker-sap-hana/ee2/sql:/mnt-sql
+    #         - ~/git/tableau-docker-sap-hana/ee2/data:/mnt/data
+    #         - ~/git/tableau-docker-sap-hana/ee2/scripts:/mnt/scripts
+    #         - ~/git/tableau-docker-sap-hana/ee2/sql:/mnt/sql
 
     # mssql:
     #     image: mcr.microsoft.com/mssql/server:2019-latest
@@ -85,16 +85,16 @@ services:
     #         - ~/git/tableau/docker-oracle/19/scripts:/home/oracle/bin
     #         - ~/oracle/scripts:/opt/oracle/scripts
 
-    tableau-sap-hana-ee2:
-        image: tableau-sap-hana-ee2
-        env_file: .env-tableau-sap-hana
-        ports:
-            - 1128-1129:1128-1129
-            - 39013:39013
-            - 39017:39017
-            - 39041-39045:39041-39045
-            - 59013-59014:59013-59014
-        volumes:
-            - ~/git/tableau/docker-sap-hana/ee2/data:/mnt/data
-            - ~/git/tableau/docker-sap-hana/ee2/scripts:/mnt/scripts
-            - ~/git/tableau/docker-sap-hana/ee2/sql:/mnt/sql
+    # tableau-sap-hana-ee2:
+    #     image: tableau-sap-hana-ee2
+    #     env_file: .env-tableau-sap-hana
+    #     ports:
+    #         - 1128-1129:1128-1129
+    #         - 39013:39013
+    #         - 39017:39017
+    #         - 39041-39045:39041-39045
+    #         - 59013-59014:59013-59014
+    #     volumes:
+    #         - ~/git/tableau/docker-sap-hana/ee2/data:/mnt/data
+    #         - ~/git/tableau/docker-sap-hana/ee2/scripts:/mnt/scripts
+    #         - ~/git/tableau/docker-sap-hana/ee2/sql:/mnt/sql
