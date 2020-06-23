@@ -49,6 +49,12 @@ services:
     #     ports:
     #         - 5432:5432
 
+    # presto:
+    #     image: prestosql/presto
+    #     env_file: .env-presto
+    #     ports:
+    #         - 8080:8080
+
     # tableau-mssql-2012:
     #     image: tableau-mssql-2012
     #     env_file: .env-tableau-mssql
