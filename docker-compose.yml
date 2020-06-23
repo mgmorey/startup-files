@@ -91,6 +91,12 @@ services:
     #         - ~/git/tableau/docker-oracle/19/scripts:/home/oracle/bin
     #         - ~/oracle/scripts:/opt/oracle/scripts
 
+    # tableau-postgres:
+    #     image: artifactory.prod.tableautools.com:6555/dataservices/tableau-postgres-9.4
+    #     env_file: .env-tableau-postgres
+    #     ports:
+    #         - 5432:5432
+
     # tableau-sap-hana-ee2:
     #     image: tableau-sap-hana-ee2
     #     env_file: .env-tableau-sap-hana
