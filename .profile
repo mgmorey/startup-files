@@ -13,6 +13,7 @@ export LANG=${LANG-en_US.UTF-8}
 export LC_ALL=${LC_ALL-en_US.UTF-8}
 
 export CONFIRM_PACKAGE_INSTALL=true
+
 export EDITOR=emacs
 export FLASK_ENV=development
 
@@ -25,8 +26,13 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set profile parameters
-if [ -x "$HOME/bin/set-parameters" ]; then
-    eval "$($HOME/bin/set-parameters)"
+if [ -x "$HOME/bin/set-profile-parameters" ]; then
+    eval "$($HOME/bin/set-profile-parameters)"
+fi
+
+# set askpass parameters
+if [ -x "$HOME/bin/set-askpass-parameters" ]; then
+    eval "$($HOME/bin/set-askpass-parameters)"
 fi
 
 # enable pipenv completion
