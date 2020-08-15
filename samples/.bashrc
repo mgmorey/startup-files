@@ -105,7 +105,9 @@ export CLICOLOR=YES
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    . ~/.bash_aliases || true
+elif [ -s ~/.alias ]; then
+    . ~/.alias || true
 fi
 
 # enable programmable completion features (you don't need to enable
