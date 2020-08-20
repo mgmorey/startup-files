@@ -1,8 +1,17 @@
 # docker-compose.yml
 
-version: '3'
+# require Docker Engine release 19.03.0+
+version: '3.8'
 
 services:
+
+    # db2-11.5.4:
+    #     image: ibmcom/db2:11.5.4.0
+    #     cap_add:
+    #         - ALL
+    #     env_file: .env-ibm-db2
+    #     ports:
+    #         - 50000:50000
 
     # hanaexpress:
     #     image: store/saplabs/hanaexpress
@@ -54,6 +63,14 @@ services:
     #     env_file: .env-presto
     #     ports:
     #         - 8080:8080
+
+    # tableau-ibm-db2-11.5.4:
+    #     image: artifactory.prod.tableautools.com:6555/dataservices/tableau-ibm-db2-11.5.4:202008191228
+    #     cap_add:
+    #         - ALL
+    #     env_file: .env-tableau-ibm-db2
+    #     ports:
+    #         - 50000:50000
 
     # tableau-mssql-2012:
     #     image: tableau-mssql-2012
