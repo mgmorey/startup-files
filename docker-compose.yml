@@ -94,9 +94,9 @@ services:
     #     ports:
     #         - 1521:1521
     #         - 5500:5500
-    #     # volumes:
-    #     #     - ~/git/tableau/docker-oracle/18/scripts:/home/oracle/bin
-    #     #     - ~/oracle/scripts:/opt/oracle/scripts
+    #     volumes:
+    #         - ~/git/tableau/docker-oracle/18/scripts:/home/oracle/bin
+    #         - ~/oracle/scripts:/opt/oracle/scripts
 
     # tableau-oracle-19:
     #     image: artifactory.prod.tableautools.com:6555/dataservices/tableau-oracle-19
