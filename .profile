@@ -17,6 +17,10 @@ export CONFIRM_PACKAGE_INSTALL=true
 export EDITOR=emacs
 export FLASK_ENV=development
 
+if [ -n "WSL_DISTRO_NAME" ]; then
+    export WSL_HOST=$($HOME/bin/get-nameserver /etc/resolv.conf)
+fi
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
