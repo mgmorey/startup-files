@@ -7,18 +7,20 @@
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
 
-umask 022
+umask 027
 
-export LANG=${LANG-en_US.UTF-8}
-export LC_ALL=${LC_ALL-en_US.UTF-8}
+LANG=${LANG-en_US.UTF-8}
+LC_ALL=${LC_ALL-en_US.UTF-8}
+export LANG LC_ALL
 
-export CONFIRM_PACKAGE_INSTALL=true
-
-export EDITOR=emacs
+CONFIRM_PACKAGE_INSTALL=true
+EDITOR=emacs
 export FLASK_ENV=development
+export CONFIRM_PACKAGE_INSTALL EDITOR FLASK_ENV
 
 if [ -n "WSL_DISTRO_NAME" ]; then
-    export WSL_HOST=$($HOME/bin/get-nameserver /etc/resolv.conf)
+    WSL_HOST=$($HOME/bin/get-nameserver /etc/resolv.conf)
+    export WSL_HOST
 fi
 
 # if running bash
