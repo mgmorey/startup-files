@@ -24,7 +24,7 @@ if [ -n "WSL_DISTRO_NAME" ]; then
 fi
 
 # if running bash
-if [ -n "$BASH_VERSION" ]; then
+if [ -n "${BASH_VERSION-}" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
         . "$HOME/.bashrc"
@@ -45,7 +45,7 @@ fi
 if which pipenv >/dev/null 2>&1; then
     case $- in
         *i*)
-            if [ -n "$BASH_VERSION" ]; then
+            if [ -n "${BASH_VERSION-}" ]; then
                 eval "$(pipenv --completion)"
             fi
             ;;
