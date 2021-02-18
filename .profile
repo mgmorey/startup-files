@@ -18,7 +18,7 @@ EDITOR=emacs
 export FLASK_ENV=development
 export CONFIRM_PACKAGE_INSTALL EDITOR FLASK_ENV
 
-if [ -n "WSL_DISTRO_NAME" ]; then
+if [ -n "${WSL_DISTRO_NAME-}" ]; then
     WSL_HOST=$($HOME/bin/get-nameserver /etc/resolv.conf)
     export WSL_HOST
 fi
