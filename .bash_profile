@@ -1,7 +1,7 @@
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
 
-umask 027
+umask 0027
 
 export LANG=${LANG-en_US.UTF-8}
 export LC_ALL=${LC_ALL-en_US.UTF-8}
