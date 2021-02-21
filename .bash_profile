@@ -22,14 +22,9 @@ if [ -n "${BASH_VERSION-}" ]; then
     fi
 fi
 
-# set profile parameters
+# set parameters
 if [ -x "$HOME/bin/set-profile-parameters" ]; then
-    eval "$($HOME/bin/set-profile-parameters)"
-fi
-
-# set askpass parameters
-if [ -x "$HOME/bin/set-askpass-parameters" ]; then
-    eval "$($HOME/bin/set-askpass-parameters)"
+    eval "$($HOME/bin/set-parameters)"
 fi
 
 # enable pipenv completion
