@@ -19,6 +19,28 @@
   ;; You may delete these explanatory comments.
   (package-initialize)
 
+  ;; ;; Bootstrap use-package
+  ;; (unless (package-installed-p 'use-package)
+  ;;   (package-refresh-contents)
+  ;;   (package-install 'use-package))
+
+  ;; (use-package ace-window
+  ;;   :ensure t
+  ;;   :init
+  ;;   (progn
+  ;;     (global-set-key [remap other-window] 'ace-window)
+  ;;     (custom-set-faces
+  ;;       '(aw-leading-char-face
+  ;;          ((t (:inherit ace-jump-face-foreground :height 3.0)))))
+  ;;     ))
+
+  ;; (use-package try
+  ;;   :ensure t)
+
+  ;; (use-package which-key
+  ;;   :ensure t
+  ;;   :config (which-key-mode))
+
   ;; ;; Configure apex-mode
   ;; (require 'apex-mode)
 
@@ -74,21 +96,6 @@
 ;;   (when (boundp 'input-decode-map)
 ;;     (define-key input-decode-map "^[[1;5C" [(control right)])
 ;;     (define-key input-decode-map "^[[1;5D" [(control left)])))
-
-;; ;; Bootstrap use-package
-;; (unless (package-installed-p 'use-package)
-;;   (package-refresh-contents)
-;;   (package-install 'use-package))
-
-;; (use-package ace-window
-;;   :ensure t
-;;   :init
-;;   (progn
-;;     (global-set-key [remap other-window] 'ace-window)
-;;     (custom-set-faces
-;;       '(aw-leading-char-face
-;;          ((t (:inherit ace-jump-face-foreground :height 3.0)))))
-;;     ))
 
 ;; Default to indenting with spaces (rather than tabs)
 (setq-default indent-tabs-mode nil)
