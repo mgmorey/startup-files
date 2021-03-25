@@ -15,7 +15,7 @@ export LANG LC_ALL
 
 CONFIRM_PACKAGE_INSTALL=true
 EDITOR=emacs
-export FLASK_ENV=development
+FLASK_ENV=development
 export CONFIRM_PACKAGE_INSTALL EDITOR FLASK_ENV
 
 if [ -n "${WSL_DISTRO_NAME-}" ]; then
