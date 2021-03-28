@@ -41,7 +41,7 @@ if which pipenv >/dev/null 2>&1; then
     case $- in
         *i*)
             if [ -n "${BASH_VERSION-}" ]; then
-                eval "$(pipenv --completion)"
+                eval "$(pipenv --completion | tr -d '\r')"
             fi
             ;;
     esac
