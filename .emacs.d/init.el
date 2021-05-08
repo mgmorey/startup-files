@@ -100,6 +100,10 @@
 ;; Default to indenting with spaces (rather than tabs)
 (setq-default indent-tabs-mode nil)
 
+;; Set C Default Style
+(setq c-default-style "linux"
+      c-basic-offset 4)
+
 ;; Override default major mode according to file name pattern
 (add-to-list 'auto-mode-alist '(".+\.fish\\'" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("Pipfile.lock\\'" . javascript-mode))
