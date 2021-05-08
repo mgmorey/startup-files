@@ -100,7 +100,7 @@
 ;; Default to indenting with spaces (rather than tabs)
 (setq-default indent-tabs-mode nil)
 
-;; Set C Default Style
+;; Set C default style
 (setq c-default-style "linux"
       c-basic-offset 4)
 
