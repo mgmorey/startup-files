@@ -101,8 +101,7 @@
 (setq-default indent-tabs-mode nil)
 
 ;; Set C default style
-(setq c-default-style "bsd"
-      c-basic-offset 2)
+(setq c-default-style "bsd")
 
 ;; Override default major mode according to file name pattern
 (add-to-list 'auto-mode-alist '(".+\.fish\\'" . shell-script-mode))
