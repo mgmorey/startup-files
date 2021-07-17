@@ -121,6 +121,15 @@ if ! shopt -oq posix; then
     fi
 fi
 
+# enable pyenv
+if which pyenv >/dev/null 2>&1; then
+    case $- in
+        *i*)
+            eval "$(pyenv init -)"
+            ;;
+    esac
+fi
+
 # Some people don't like fortune. If you uncomment the following lines,
 # you will have a fortune each time you log in ;-)
 
