@@ -51,8 +51,7 @@ fi
 if which pyenv >/dev/null 2>&1; then
     case $- in
         *i*)
-            eval "$(pyenv init -)"
-            eval "$(pyenv virtualenv-init -)"
+            eval "$(pyenv init --path)"
             ;;
     esac
 fi
