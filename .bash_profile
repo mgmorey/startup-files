@@ -38,7 +38,7 @@ if which pipenv >/dev/null 2>&1; then
     esac
 fi
 
-# enable pyenv w/ completion
+# enable pyenv
 if which pyenv >/dev/null 2>&1; then
     case $- in
         *i*)
