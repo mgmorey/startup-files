@@ -32,7 +32,7 @@ if [ -n "${BASH_VERSION-}" ]; then
 fi
 
 # set parameters
-if [ -x "$HOME/bin/set-profile-parameters" ]; then
+if [ -x "$HOME/bin/set-parameters" ]; then
     eval "$($HOME/bin/set-parameters)"
 fi
 
