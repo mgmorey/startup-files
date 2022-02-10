@@ -31,6 +31,13 @@ if [ -n "${BASH_VERSION-}" ]; then
     fi
 fi
 
+# set parameters for Homebrew
+if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+elif [ -x "$HOME/.linuxbrew/bin/brew" ]; then
+    eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
+fi
+
 # set parameters
 if [ -x "$HOME/bin/set-parameters" ]; then
     eval "$($HOME/bin/set-parameters)"
