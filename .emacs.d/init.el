@@ -35,8 +35,15 @@
   ;;          ((t (:inherit ace-jump-face-foreground :height 3.0)))))
   ;;     ))
 
+  ;; (use-package savehist
+  ;;   :init (savehist-mode))
+
   ;; (use-package try
   ;;   :ensure t)
+
+  ;; (use-package vertico
+  ;;   :ensure t
+  ;;   :init (vertico-mode))
 
   ;; (use-package which-key
   ;;   :ensure t
