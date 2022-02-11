@@ -37,6 +37,10 @@
   ;; (use-package try
   ;;   :ensure t)
 
+  ;; (use-package vertico
+  ;;   :ensure t
+  ;;   :init (vertico-mode))
+
   ;; (use-package which-key
   ;;   :ensure t
   ;;   :config (which-key-mode))
