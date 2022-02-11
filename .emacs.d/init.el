@@ -36,14 +36,16 @@
   ;;     ))
 
   ;; (use-package savehist
-  ;;   :init (savehist-mode))
+  ;;   :init
+  ;;   (savehist-mode))
 
   ;; (use-package try
   ;;   :ensure t)
 
   ;; (use-package vertico
   ;;   :ensure t
-  ;;   :init (vertico-mode))
+  ;;   :init
+  ;;   (vertico-mode))
 
   ;; (use-package which-key
   ;;   :ensure t
