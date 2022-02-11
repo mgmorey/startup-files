@@ -34,6 +34,9 @@
   ;;          ((t (:inherit ace-jump-face-foreground :height 3.0)))))
   ;;     ))
 
+  ;; (use-package savehist
+  ;;   :init (savehist-mode))
+
   ;; (use-package try
   ;;   :ensure t)
 
