@@ -54,6 +54,10 @@
   ;; ;; Configure apex-mode
   ;; (require 'apex-mode)
 
+  ;; ;; Configure counsel-etags
+  ;; (require 'counsel-etags)
+  ;; (global-set-key (kbd "M-.") 'counsel-etags-find-tag-at-point)
+
   ;; ;; Configure docker-cli
   ;; (require 'docker-cli)
 
