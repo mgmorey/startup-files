@@ -64,6 +64,11 @@
   ;; ;; Configure editorconfig-mode
   ;; (editorconfig-mode 1)
 
+  ;; ;; Configure eglot
+  ;; (require 'eglot)
+  ;; (add-hook 'c-mode-hook 'eglot-ensure)
+  ;; (add-hook 'c++-mode-hook 'eglot-ensure)
+
   ;; ;; Configure helm-mode
   ;; (require 'helm-config)
   ;; (helm-mode 1)
