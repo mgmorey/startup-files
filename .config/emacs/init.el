@@ -24,37 +24,6 @@
   ;; line.  You may delete these explanatory comments.
   (package-initialize)
 
-  ;; ;; Bootstrap use-package
-  ;; (unless (package-installed-p 'use-package)
-  ;;   (package-refresh-contents)
-  ;;   (package-install 'use-package))
-
-  ;; (use-package ace-window
-  ;;   :ensure t
-  ;;   :init
-  ;;   (progn
-  ;;     (global-set-key [remap other-window] 'ace-window)
-  ;;     (custom-set-faces
-  ;;       '(aw-leading-char-face
-  ;;          ((t (:inherit ace-jump-face-foreground :height 3.0)))))
-  ;;     ))
-
-  ;; (use-package savehist
-  ;;   :init
-  ;;   (savehist-mode))
-
-  ;; (use-package try
-  ;;   :ensure t)
-
-  ;; (use-package vertico
-  ;;   :ensure t
-  ;;   :init
-  ;;   (vertico-mode))
-
-  ;; (use-package which-key
-  ;;   :ensure t
-  ;;   :config (which-key-mode))
-
   ;; ;; Configure apex-mode
   ;; (require 'apex-mode)
 
@@ -66,6 +35,7 @@
   ;; (require 'docker-cli)
 
   ;; ;; Configure editorconfig-mode
+  ;; (require 'editorconfig)
   ;; (editorconfig-mode 1)
 
   ;; ;; Configure eglot
@@ -93,6 +63,40 @@
   ;; (require 'slime-autoloads)
   ;; (setq inferior-lisp-program "sbcl")
   ;; (setq slime-contribs '(slime-fancy))
+
+  ;; ;; Bootstrap use-package
+  ;; (unless (package-installed-p 'use-package)
+  ;;   (package-refresh-contents)
+  ;;   (package-install 'use-package))
+  ;; (require 'use-package-ensure)
+  ;; (setq use-package-always-ensure t)
+
+  ;; (use-package ace-window
+  ;;   :ensure t
+  ;;   :init
+  ;;   (progn
+  ;;     (global-set-key [remap other-window] 'ace-window)
+  ;;     (custom-set-faces
+  ;;       '(aw-leading-char-face
+  ;;          ((t (:inherit ace-jump-face-foreground :height 3.0)))))
+  ;;     ))
+
+  ;; (use-package savehist
+  ;;   :ensure t
+  ;;   :init
+  ;;   (savehist-mode))
+
+  ;; (use-package try
+  ;;   :ensure t)
+
+  ;; (use-package vertico
+  ;;   :ensure t
+  ;;   :init
+  ;;   (vertico-mode))
+
+  ;; (use-package which-key
+  ;;   :config (which-key-mode)
+  ;;   :ensure t)
 
   ;; ;; Configure for macOS
   ;; (setq insert-directory-program "gls" dired-use-ls-dired t)
