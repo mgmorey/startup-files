@@ -136,6 +136,7 @@
 (add-to-list 'auto-mode-alist '("Pipfile\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.env-.+\\'" . dotenv-mode))
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.lst\\'" . fundamental-mode))
 (add-to-list 'auto-mode-alist '("\\.pylintrc\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("pylintrc\\'" . conf-mode))
 
