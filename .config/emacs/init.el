@@ -81,6 +81,39 @@
   ;;          ((t (:inherit ace-jump-face-foreground :height 3.0)))))
   ;;     ))
 
+  ;; (use-package eterm-256color
+  ;;   :ensure t
+  ;;   :hook (term-mode . eterm-256color-mode))
+
+  ;; (use-package lsp-mode
+  ;;   :commands (lsp lsp-deferred)
+  ;;   :config
+  ;;   (lsp-enable-which-key-integration t)
+  ;;   :hook ((c++-mode python-mode) . lsp-deferred)
+  ;;   :init
+  ;;   (setq lsp-keymap-prefix "C-c l"))
+
+  ;; (use-package lsp-ui
+  ;;   :commands lsp-ui-mode
+  ;;   :config
+  ;;   (setq lsp-ui-doc-enable nil)
+  ;;   (setq lsp-ui-doc-header t)
+  ;;   (setq lsp-ui-doc-include-signature t)
+  ;;   (setq lsp-ui-doc-border (face-foreground 'default))
+  ;;   (setq lsp-ui-sideline-show-code-actions t)
+  ;;   (setq lsp-ui-sideline-delay 0.05))
+
+  ;; (use-package projectile
+  ;;   :bind-keymap
+  ;;   ("C-c p" . projectile-command-map)
+  ;;   :ensure t
+  ;;   :config (projectile-mode)
+  ;;   :diminish projectile-mode
+  ;;   :init
+  ;;   (when (file-directory-p "~/git")
+  ;;     (setq project-project-search-path '("~/git")))
+  ;;   (setq projectile-switch-project-action #'projectile-dired))
+
   ;; (use-package savehist
   ;;   :ensure t
   ;;   :init
@@ -133,8 +166,10 @@
 ;; Override default major mode according to file name pattern
 (add-to-list 'auto-mode-alist '("Pipfile.lock\\'" . javascript-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.clang-tidy\\'" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.env-.+\\'" . dotenv-mode))
 (add-to-list 'auto-mode-alist '("\\.fish\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\\.gmk\\'" . makefile-mode))
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.lst\\'" . fundamental-mode))
 (add-to-list 'auto-mode-alist '("\\.pylintrc\\'" . conf-mode))
