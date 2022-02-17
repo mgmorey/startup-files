@@ -29,6 +29,15 @@
 
   ;; ;; Configure counsel
   ;; (require 'counsel)
+  ;; (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+  ;; (global-set-key (kbd "<f1> l") 'counsel-find-library)
+  ;; (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+  ;; (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+  ;; (global-set-key (kbd "<f2> j") 'counsel-set-variable)
+  ;; (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+  ;; (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+  ;; (global-set-key (kbd "M-x") 'counsel-M-x)
+  ;; (global-set-key (kbd "M-y") 'counsel-yank-pop)
 
   ;; ;; Configure counsel-tags
   ;; (require 'counsel-etags)
@@ -52,6 +61,11 @@
 
   ;; ;; Configure ivy
   ;; (ivy-mode 1)
+  ;; (setq ivy-count-format "(%d/%d) ")
+  ;; (setq ivy-use-virtual-buffers t)
+  ;; (global-set-key (kbd "C-c V") 'ivy-pop-view)
+  ;; (global-set-key (kbd "C-c v") 'ivy-push-view)
+  ;; (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
 
   ;; ;; Configure mmm-mode
   ;; (require 'mmm-mode)
@@ -69,6 +83,10 @@
   ;; (require 'slime-autoloads)
   ;; (setq inferior-lisp-program "sbcl")
   ;; (setq slime-contribs '(slime-fancy))
+
+  ;; ;; Configure swiper
+  ;; (require 'swiper)
+  ;; (global-set-key (kbd "C-s") 'swiper-isearch)
 
   ;; ;; Bootstrap use-package
   ;; (unless (package-installed-p 'use-package)
