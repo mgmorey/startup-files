@@ -27,7 +27,10 @@
   ;; ;; Configure apex-mode
   ;; (require 'apex-mode)
 
-  ;; ;; Configure counsel-etags
+  ;; ;; Configure counsel
+  ;; (require 'counsel)
+
+  ;; ;; Configure counsel-tags
   ;; (require 'counsel-etags)
   ;; (global-set-key (kbd "M-.") 'counsel-etags-find-tag-at-point)
 
@@ -46,6 +49,9 @@
   ;; ;; Configure helm-mode
   ;; (require 'helm-config)
   ;; (helm-mode 1)
+
+  ;; ;; Configure ivy
+  ;; (ivy-mode 1)
 
   ;; ;; Configure mmm-mode
   ;; (require 'mmm-mode)
