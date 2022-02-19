@@ -88,6 +88,12 @@
   ;; (autoload 'php-mode "php-mode" "PHP editing mode" t)
   ;; (add-to-list 'auto-mode-alist '("\\.php\\'" . html-mode))
 
+  ;; ;; Configure modus-themes
+  ;; (require 'modus-themes)
+  ;; (modus-themes-load-themes)
+  ;; (load-theme 'modus-operandi t)
+  ;; (load-theme 'modus-vivendi t)
+
   ;; ;; Configure slime
   ;; (require 'slime-autoloads)
   ;; (setq inferior-lisp-program "sbcl")
