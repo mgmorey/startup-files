@@ -197,14 +197,14 @@
 ;;     (define-key input-decode-map "^[[1;5C" [(control right)])
 ;;     (define-key input-decode-map "^[[1;5D" [(control left)])))
 
-;; ;; Default to indenting with spaces (rather than tabs)
-;; (setq-default indent-tabs-mode nil)
+;; ;; Customize Emacs splash image
+;; (setq fancy-splash-image "~/.config/emacs/images/Emacs-logo.png")
 
 ;; ;; Set C default style
 ;; (setq c-default-style "bsd")
 
-;; ;; Customize Emacs splash image
-;; (setq fancy-splash-image "~/.config/emacs/images/Emacs-logo.png")
+;; ;; Default to indenting with spaces (rather than tabs)
+;; (setq-default indent-tabs-mode nil)
 
 ;; Override default major mode according to file name pattern
 (add-to-list 'auto-mode-alist '("Pipfile.lock\\'" . javascript-mode))
