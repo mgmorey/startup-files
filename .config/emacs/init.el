@@ -91,9 +91,15 @@
 
   ;; ;; Configure modus-themes
   ;; (require 'modus-themes)
+  ;; ;; Add all your customizations prior to loading the themes
+  ;; (setq modus-themes-italic-constructs t
+  ;;   modus-themes-bold-constructs nil
+  ;;   modus-themes-region '(bg-only no-extend))
+  ;; ;; Load the theme files before enabling a theme
   ;; (modus-themes-load-themes)
-  ;; (load-theme 'modus-operandi t)
-  ;; (load-theme 'modus-vivendi t)
+  ;; ;; Load the theme of your choice:
+  ;; (modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
+  ;; (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 
   ;; ;; Configure slime
   ;; (require 'slime-autoloads)
@@ -142,6 +148,21 @@
   ;;   (setq lsp-ui-doc-border (face-foreground 'default))
   ;;   (setq lsp-ui-sideline-show-code-actions t)
   ;;   (setq lsp-ui-sideline-delay 0.05))
+
+  ;; (use-package modus-themes
+  ;;   :ensure
+  ;;   :init
+  ;;   ;; Add all your customizations prior to loading the themes
+  ;;   (setq modus-themes-italic-constructs t
+  ;;     modus-themes-bold-constructs nil
+  ;;     modus-themes-region '(bg-only no-extend))
+
+  ;;   ;; Load the theme files before enabling a theme
+  ;;   (modus-themes-load-themes)
+  ;;   :config
+  ;;   ;; Load the theme of your choice:
+  ;;   (modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
+  ;;   :bind ("<f5>" . modus-themes-toggle))
 
   ;; (use-package projectile
   ;;   :bind-keymap
