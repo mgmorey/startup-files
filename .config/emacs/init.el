@@ -221,6 +221,19 @@
 ;; ;; Customize Emacs splash image
 ;; (setq fancy-splash-image "~/.config/emacs/images/Emacs-logo.png")
 
+;; ;; Enable Global Auto-Revert Mode for both directories and files
+;; (setq global-auto-revert-non-file-buffers t)
+;; (global-auto-revert-mode 1)
+
+;; ;; Enable Global Display Line Nummbers Mode
+;; (global-display-line-numbers-mode 1)
+
+;; ;; Enable Recent File Mode
+;; (recentf-mode 1)
+
+;; ;; Enable Save Place Mode
+;; (save-place-mode 1)
+
 ;; ;; Set C default style
 ;; (setq c-default-style "bsd")
 
