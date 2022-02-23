@@ -156,7 +156,6 @@
   ;;   (setq modus-themes-italic-constructs t
   ;;     modus-themes-bold-constructs nil
   ;;     modus-themes-region '(bg-only no-extend))
-
   ;;   ;; Load the theme files before enabling a theme
   ;;   (modus-themes-load-themes)
   ;;   :config
