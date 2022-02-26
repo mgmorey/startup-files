@@ -119,6 +119,7 @@
   ;; (add-hook 'slime-repl-mode-hook 'override-slime-del-key)
 
   ;; ;; Configure slime
+  ;; (require 'slime)
   ;; (require 'slime-autoloads)
   ;; (setq inferior-lisp-program "sbcl")
   ;; (setq slime-contribs '(slime-fancy))
