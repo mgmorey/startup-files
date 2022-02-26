@@ -1,7 +1,7 @@
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 
 ;; Workaround for https://debbugs.gnu.org/34341
-(setq gnutls-algorithm-priority "normal:-vers-tls1.3")
+;; (setq gnutls-algorithm-priority "normal:-vers-tls1.3")
 
 (when (> emacs-major-version 22)
   (require 'package)
@@ -25,6 +25,8 @@
   ;; it, just comment it out by adding a semicolon to the start of the
   ;; line.  You may delete these explanatory comments.
   (package-initialize)
+
+  ;; Refresh package contents
   (unless package-archive-contents
     (package-refresh-contents))
 
