@@ -57,6 +57,22 @@
   ;; (require 'counsel-etags)
   ;; (global-set-key (kbd "M-.") 'counsel-etags-find-tag-at-point)
 
+;;   ;; Configure display-line-numbers
+;;   (require 'display-line-numbers)
+;;   (defcustom display-line-numbers-exempt-modes
+;;     '(ansi-term-mode compilation-mode eshell-mode shell-mode term-mode vterm-mode)
+;;     "Major modes on which to disable line numbers."
+;;     :group 'display-line-numbers
+;;     :type 'list
+;;     :version "green")
+;;   (defun display-line-numbers--turn-on ()
+;;     "Turn on line numbers except for certain major modes.
+;; Exempt major modes are defined in `display-line-numbers-exempt-modes'."
+;;     (unless (or (minibufferp)
+;;               (member major-mode display-line-numbers-exempt-modes))
+;;       (display-line-numbers-mode)))
+;;   (global-display-line-numbers-mode)
+
   ;; ;; Configure docker-cli
   ;; (require 'docker-cli)
 
@@ -243,9 +259,6 @@
 ;; ;; Enable Global Auto-Revert Mode for both directories and files
 ;; (setq global-auto-revert-non-file-buffers t)
 ;; (global-auto-revert-mode 1)
-
-;; ;; Enable Global Display Line Nummbers Mode
-;; (global-display-line-numbers-mode 1)
 
 ;; ;; Enable Recent File Mode
 ;; (recentf-mode 1)
