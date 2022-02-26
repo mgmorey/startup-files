@@ -25,6 +25,8 @@
   ;; it, just comment it out by adding a semicolon to the start of the
   ;; line.  You may delete these explanatory comments.
   (package-initialize)
+  (unless package-archive-contents
+    (package-refresh-contents))
 
   ;; ;; Configure apex-mode
   ;; (require 'apex-mode)
