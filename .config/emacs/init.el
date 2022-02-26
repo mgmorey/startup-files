@@ -1,5 +1,8 @@
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 
+;; Workaround for https://debbugs.gnu.org/34341
+(setq gnutls-algorithm-priority "normal:-vers-tls1.3")
+
 (when (> emacs-major-version 22)
   (require 'package)
 
@@ -16,7 +19,6 @@
       ;; For important compatibility libraries like cl-lib
       (add-to-list 'package-archives
         '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
-  ;; (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
   ;; Added by Package.el.  This must come before configurations of
   ;; installed packages.  Don't delete this line.  If you don't want
