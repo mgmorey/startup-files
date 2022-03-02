@@ -285,7 +285,7 @@
 (add-to-list 'auto-mode-alist '("pylintrc\\'" . conf-mode))
 
 ;; ;; Change the location of customizations (variables and faces)
-;; (setq custom-file (locate-user-emacs-file "customizations.el"))
+;; (setq custom-file (locate-user-emacs-file "custom.el"))
 ;; (load custom-file 'noerror 'nomessage)
 
 ;; Customizations follow
