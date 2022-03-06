@@ -22,6 +22,25 @@ if [ -n "${BASH_VERSION-}" ]; then
     fi
 fi
 
+# # set parameters for optional software
+# for dir in /opt/{{giflib-5.2.1,git-2.35.1},gnu/emacs-27.2}; do
+#     if [ -d "$dir/include" ]; then
+#         export CPPFLAGS="-I$dir/include${CPPFLAGS+ $CPPFLAGS}"
+#     fi
+#     if [ -d "$dir/share/info" ]; then
+#         export INFOPATH="$dir/share/info${INFOPATH+:$INFOPATH}"
+#     fi
+#     if [ -d "$dir/lib" ]; then
+#         export LDLIBS="-L$dir/lib${LDLIBS+ $LDLIBS}"
+#     fi
+#     if [ -d "$dir/share/man" ]; then
+#         export MANPATH="$dir/share/man${MANPATH+:$MANPATH}"
+#     fi
+#     if [ -d "$dir/bin" ]; then
+#         export PATH="$dir/bin${PATH+:$PATH}"
+#     fi
+# done
+
 # set parameters for Homebrew
 if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
