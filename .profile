@@ -32,7 +32,7 @@ if [ -n "${BASH_VERSION-}" ]; then
 fi
 
 # # set parameters for optional software
-# for dir in /opt/{git-2.35.1,gnu/emacs-27.2}; do
+# for dir in /opt/git-2.35.1 /opt/gnu/emacs-27.2; do
 #     if [ -d "$dir/include" ]; then
 #         CPPFLAGS="-I$dir/include${CPPFLAGS+ $CPPFLAGS}"
 #     fi
