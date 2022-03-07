@@ -31,6 +31,30 @@ if [ -n "${BASH_VERSION-}" ]; then
     fi
 fi
 
+# # set parameters for optional software
+# for dir in /opt/{git-2.35.1,gnu/emacs-27.2}; do
+#     if [ -d "$dir/include" ]; then
+#         CPPFLAGS="-I$dir/include${CPPFLAGS+ $CPPFLAGS}"
+#     fi
+#     if [ -d "$dir/share/info" ]; then
+#         INFOPATH="$dir/share/info${INFOPATH+:$INFOPATH}"
+#     fi
+#     if [ -d "$dir/lib" ]; then
+#         LDLIBS="-L$dir/lib${LDLIBS+ $LDLIBS}"
+#     fi
+#     if [ -d "$dir/share/man" ]; then
+#         MANPATH="$dir/share/man${MANPATH+:$MANPATH}"
+#     fi
+#     if [ -d "$dir/bin" ]; then
+#         PATH="$dir/bin${PATH+:$PATH}"
+#     fi
+#     if [ -d "$dir/lib/pkgconfig" ]; then
+#         PKG_CONFIG_PATH="$dir/lib/pkgconfig${PKG_CONFIG_PATH+:$PKG_CONFIG_PATH}"
+#     fi
+# done
+
+# export CPPFLAGS INFOPATH LDLIBS MANPATH PATH PKG_CONFIG_PATH
+
 # set parameters for Homebrew
 if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
