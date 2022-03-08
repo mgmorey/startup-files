@@ -23,28 +23,38 @@ if [ -n "${BASH_VERSION-}" ]; then
 fi
 
 # # set parameters for optional software
-# for dir in /opt/git-2.35.1 /opt/gnu/emacs-27.2; do
-#     if [ -d "$dir/include" ]; then
-#         CPPFLAGS="-I$dir/include${CPPFLAGS+ $CPPFLAGS}"
-#     fi
-#     if [ -d "$dir/share/info" ]; then
-#         INFOPATH="$dir/share/info${INFOPATH+:$INFOPATH}"
-#     fi
-#     if [ -d "$dir/lib" ]; then
-#         LDLIBS="-L$dir/lib${LDLIBS+ $LDLIBS}"
-#     fi
-#     if [ -d "$dir/share/man" ]; then
-#         MANPATH="$dir/share/man${MANPATH+:$MANPATH}"
-#     fi
-#     if [ -d "$dir/bin" ]; then
-#         PATH="$dir/bin${PATH+:$PATH}"
-#     fi
-#     if [ -d "$dir/lib/pkgconfig" ]; then
-#         PKG_CONFIG_PATH="$dir/lib/pkgconfig${PKG_CONFIG_PATH+:$PKG_CONFIG_PATH}"
-#     fi
+
+# bits="$(uname -m | sed 's/x86_//')"
+# gnudirs={gmp-6.2.1,gnutls-3.7.3,nettle-3.6}
+# optdirs=gnu/$gnudirs
+
+# for dir in $(find $(eval ls -d /opt/$optdirs | sort -r) -type d); do
+#     case "$(basename "$dir" "$bits")" in
+#         (include)
+#             CPPFLAGS="-I$dir${CPPFLAGS+ $CPPFLAGS}"
+#             ;;
+#         (info)
+#             INFOPATH="$dir${INFOPATH+:$INFOPATH}"
+#             ;;
+#         (lib)
+#             LDLIBS="-L$dir${LDLIBS+ $LDLIBS}"
+#             LD_LIBRARY_PATH="$dir${LD_LIBRARY_PATH+:$LD_LIBRARY_PATH}"
+#             LD_RUN_PATH="$dir${LD_RUN_PATH+:$LD_RUN_PATH}"
+#             ;;
+#         (man)
+#             MANPATH="$dir${MANPATH+:$MANPATH}"
+#             ;;
+#         (bin)
+#             PATH="$dir${PATH+:$PATH}"
+#             ;;
+#         (pkgconfig)
+#             PKG_CONFIG_PATH="$dir${PKG_CONFIG_PATH+:$PKG_CONFIG_PATH}"
+#             ;;
+#     esac
 # done
 
-# export CPPFLAGS INFOPATH LDLIBS MANPATH PATH PKG_CONFIG_PATH
+# export CPPFLAGS INFOPATH LDLIBS LD_LIBRARY_PATH LD_RUN_PATH MANPATH PATH
+# export PKG_CONFIG_PATH
 
 # set parameters for Homebrew
 if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
