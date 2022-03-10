@@ -1,6 +1,6 @@
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 
-;; Workaround for https://debbugs.gnu.org/34341
+;; ;; Workaround for https://debbugs.gnu.org/34341
 ;; (setq gnutls-algorithm-priority "normal:-vers-tls1.3")
 
 (when (> emacs-major-version 22)
@@ -63,7 +63,7 @@
   ;; (require 'display-line-numbers)
   ;; (defcustom display-line-numbers-exempt-modes
   ;;   '(Man-mode ansi-term-mode compilation-mode eshell-mode package-menu-mode
-  ;;              shell-mode term-mode vterm-mode)
+  ;;      shell-mode term-mode vterm-mode)
   ;;   "Major modes on which to disable line numbers."
   ;;   :group 'display-line-numbers
   ;;   :type 'list
@@ -72,7 +72,7 @@
   ;;   "Turn on line numbers except for certain major modes.
   ;; Exempt major modes are defined in `display-line-numbers-exempt-modes'."
   ;;   (unless (or (minibufferp)
-  ;;               (member major-mode display-line-numbers-exempt-modes))
+  ;;             (member major-mode display-line-numbers-exempt-modes))
   ;;     (display-line-numbers-mode)))
   ;; (global-display-line-numbers-mode)
 
