@@ -14,9 +14,9 @@
     ;; (add-to-list 'package-archives
     ;;              (cons "melpa"
     ;;                    (concat proto "://melpa.org/packages/")) t)
-    (add-to-list 'package-archives
-                 (cons "melpa-stable"
-                       (concat proto "://stable.melpa.org/packages/")) t)
+    ;; (add-to-list 'package-archives
+    ;;              (cons "melpa-stable"
+    ;;                    (concat proto "://stable.melpa.org/packages/")) t)
     (when (< emacs-major-version 24)
       ;; For important compatibility libraries like cl-lib
       (add-to-list 'package-archives
@@ -28,9 +28,9 @@
   ;; line.  You may delete these explanatory comments.
   (package-initialize)
 
-  ;; Refresh package contents
-  (unless package-archive-contents
-    (package-refresh-contents))
+  ;; ;; Refresh package contents
+  ;; (unless package-archive-contents
+  ;;   (package-refresh-contents))
 
   ;; ;; Configure apex-mode
   ;; (require 'apex-mode)
