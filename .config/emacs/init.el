@@ -62,8 +62,7 @@
   ;; ;; Configure display-line-numbers
   ;; (require 'display-line-numbers)
   ;; (defcustom display-line-numbers-exempt-modes
-  ;;   '(Man-mode ansi-term-mode compilation-mode eshell-mode package-menu-mode
-  ;;      shell-mode term-mode vterm-mode)
+  ;;   '(Info-mode Man-mode ansi-term-mode compilation-mode eshell-mode package-menu-mode shell-mode term-mode vterm-mode)
   ;;   "Major modes on which to disable line numbers."
   ;;   :group 'display-line-numbers
   ;;   :type 'list
@@ -251,41 +250,41 @@
   ;; ;; Set global keybindings
   ;; (global-set-key [f5] 'toggle-php-flavor-mode)
   ;; (global-set-key (kbd "C-x g") 'magit-status)
-  )
 
-;; ;; Configure input-decode-map
-;; (defun terminal-init-screen ()
-;;   "Terminal initialization function for GNU screen."
-;;   (when (boundp 'input-decode-map)
-;;     (define-key input-decode-map "^[[1;5C" [(control right)])
-;;     (define-key input-decode-map "^[[1;5D" [(control left)])))
 
-;; ;; Customize Emacs splash image
-;; (setq fancy-splash-image "~/.config/emacs/images/Emacs-logo.png")
+  ;; ;; Configure input-decode-map
+  ;; (defun terminal-init-screen ()
+  ;;   "Terminal initialization function for GNU screen."
+  ;;   (when (boundp 'input-decode-map)
+  ;;     (define-key input-decode-map "^[[1;5C" [(control right)])
+  ;;     (define-key input-decode-map "^[[1;5D" [(control left)])))
 
-;; ;; Enable Global Auto-Revert Mode for both directories and files
-;; (setq global-auto-revert-non-file-buffers t)
-;; (global-auto-revert-mode 1)
+  ;; ;; Customize Emacs splash image
+  ;; (setq fancy-splash-image "~/.config/emacs/images/Emacs-logo.png")
 
-;; ;; Enable Recent File Mode
-;; (recentf-mode 1)
+  ;; ;; Enable Global Auto-Revert Mode for both directories and files
+  ;; (setq global-auto-revert-non-file-buffers t)
+  ;; (global-auto-revert-mode 1)
 
-;; ;; Enable Save Place Mode
-;; (save-place-mode 1)
+  ;; ;; Enable Recent File Mode
+  ;; (recentf-mode 1)
 
-;; ;; Set C default style
-;; (setq c-default-style "bsd")
+  ;; ;; Enable Save Place Mode
+  ;; (save-place-mode 1)
 
-;; ;; Default to indenting with spaces (rather than tabs)
-;; (setq-default indent-tabs-mode nil)
+  ;; ;; Set C default style
+  ;; (setq c-default-style "bsd")
 
-;; Override default major mode according to file name pattern
-(add-to-list 'auto-mode-alist '("Pipfile.lock\\'" . javascript-mode))
-(add-to-list 'auto-mode-alist '("Pipfile\\'" . conf-mode))
-(add-to-list 'auto-mode-alist '("\\.clang-tidy\\'" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\\.env-.+\\'" . dotenv-mode))
-(add-to-list 'auto-mode-alist '("\\.fish\\'" . shell-script-mode))
-(add-to-list 'auto-mode-alist '("\\.gmk\\'" . makefile-mode))
+  ;; ;; Default to indenting with spaces (rather than tabs)
+  ;; (setq-default indent-tabs-mode nil)
+
+  ;; Override default major mode according to file name pattern
+  (add-to-list 'auto-mode-alist '("Pipfile.lock\\'" . javascript-mode))
+  (add-to-list 'auto-mode-alist '("Pipfile\\'" . conf-mode))
+  (add-to-list 'auto-mode-alist '("\\.clang-tidy\\'" . yaml-mode))
+  (add-to-list 'auto-mode-alist '("\\.env-.+\\'" . dotenv-mode))
+  (add-to-list 'auto-mode-alist '("\\.fish\\'" . shell-script-mode))
+  (add-to-list 'auto-mode-alist '("\\.gmk\\'" . makefile-mode)))
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.lst\\'" . fundamental-mode))
 (add-to-list 'auto-mode-alist '("\\.pylintrc\\'" . conf-mode))
