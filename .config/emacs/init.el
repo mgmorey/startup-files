@@ -14,18 +14,18 @@
     ;; (add-to-list 'package-archives
     ;;              (cons "melpa"
     ;;                    (concat proto "://melpa.org/packages/")) t)
-    ;; (add-to-list 'package-archives
-    ;;              (cons "melpa-stable"
-    ;;                    (concat proto "://stable.melpa.org/packages/")) t)
+    (add-to-list 'package-archives
+      (cons "melpa-stable"
+        (concat proto "://stable.melpa.org/packages/")) t)
     (when (< emacs-major-version 24)
       ;; For important compatibility libraries like cl-lib
       (add-to-list 'package-archives
         '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
 
   ;; Added by Package.el.  This must come before configurations of
-  ;; installed packages.  Don't delete this line.  If you don't want
-  ;; it, just comment it out by adding a semicolon to the start of the
-  ;; line.  You may delete these explanatory comments.
+  ;; installed packages.  Don't delete this line.  If you don't want it,
+  ;; just comment it out by adding a semicolon to the start of the line.
+  ;; You may delete these explanatory comments.
   (package-initialize)
 
   ;; ;; Refresh package contents
@@ -51,7 +51,7 @@
   ;; (global-set-key (kbd "C-c j") 'counsel-git-grep)
   ;; (global-set-key (kbd "C-c o") 'counsel-outline)
   ;; (global-set-key (kbd "C-c t") 'counsel-load-theme)
-  ;; (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+  ;; ;; (global-set-key (kbd "C-x C-f") 'counsel-find-file)
   ;; (global-set-key (kbd "M-x") 'counsel-M-x)
   ;; (global-set-key (kbd "M-y") 'counsel-yank-pop)
 
@@ -62,7 +62,8 @@
   ;; ;; Configure display-line-numbers
   ;; (require 'display-line-numbers)
   ;; (defcustom display-line-numbers-exempt-modes
-  ;;   '(Info-mode Man-mode ansi-term-mode compilation-mode eshell-mode package-menu-mode shell-mode term-mode vterm-mode)
+  ;;   '(Info-mode Man-mode ansi-term-mode compilation-mode eshell-mode
+  ;;      package-menu-mode shell-mode term-mode vterm-mode)
   ;;   "Major modes on which to disable line numbers."
   ;;   :group 'display-line-numbers
   ;;   :type 'list
@@ -117,7 +118,7 @@
   ;; (require 'modus-themes)
   ;; ;; Add all your customizations prior to loading the themes
   ;; (setq modus-themes-italic-constructs t
-  ;;   modus-themes-bold-constructs nil
+  ;;   modus-themes-bold-constructs t
   ;;   modus-themes-region '(bg-only no-extend))
   ;; ;; Load the theme files before enabling a theme
   ;; (modus-themes-load-themes)
@@ -147,10 +148,6 @@
   ;; ;; Configure swiper
   ;; (require 'swiper)
   ;; (global-set-key (kbd "C-s") 'swiper-isearch)
-
-  ;; ;; Configure vertico
-  ;; (require 'vertico)
-  ;; (vertico-mode 1)
 
   ;; ;; Bootstrap use-package
   ;; (unless (package-installed-p 'use-package)
@@ -196,7 +193,7 @@
   ;;   :init
   ;;   ;; Add all your customizations prior to loading the themes
   ;;   (setq modus-themes-italic-constructs t
-  ;;     modus-themes-bold-constructs nil
+  ;;     modus-themes-bold-constructs t
   ;;     modus-themes-region '(bg-only no-extend))
   ;;   ;; Load the theme files before enabling a theme
   ;;   (modus-themes-load-themes)
@@ -250,48 +247,46 @@
   ;; ;; Set global keybindings
   ;; (global-set-key [f5] 'toggle-php-flavor-mode)
   ;; (global-set-key (kbd "C-x g") 'magit-status)
+  )
 
+;; ;; Configure input-decode-map
+;; (defun terminal-init-screen ()
+;;   "Terminal initialization function for GNU screen."
+;;   (when (boundp 'input-decode-map)
+;;     (define-key input-decode-map "^[[1;5C" [(control right)])
+;;     (define-key input-decode-map "^[[1;5D" [(control left)])))
 
-  ;; ;; Configure input-decode-map
-  ;; (defun terminal-init-screen ()
-  ;;   "Terminal initialization function for GNU screen."
-  ;;   (when (boundp 'input-decode-map)
-  ;;     (define-key input-decode-map "^[[1;5C" [(control right)])
-  ;;     (define-key input-decode-map "^[[1;5D" [(control left)])))
+;; ;; Customize Emacs splash image
+;; (setq fancy-splash-image "~/.config/emacs/images/Emacs-logo.png")
 
-  ;; ;; Customize Emacs splash image
-  ;; (setq fancy-splash-image "~/.config/emacs/images/Emacs-logo.png")
+;; Default to indenting with spaces (rather than tabs)
+(setq-default indent-tabs-mode nil)
 
-  ;; ;; Enable Global Auto-Revert Mode for both directories and files
-  ;; (setq global-auto-revert-non-file-buffers t)
-  ;; (global-auto-revert-mode 1)
+;; Set C default style
+(setq c-default-style "bsd")
 
-  ;; ;; Enable Recent File Mode
-  ;; (recentf-mode 1)
+;; ;; Enable Global Auto-Revert Mode for both directories and files
+;; (setq global-auto-revert-non-file-buffers t)
+;; (global-auto-revert-mode 1)
 
-  ;; ;; Enable Save Place Mode
-  ;; (save-place-mode 1)
+;; ;; Enable Recent File Mode
+;; (recentf-mode 1)
 
-  ;; ;; Set C default style
-  ;; (setq c-default-style "bsd")
+;; ;; Enable Save Place Mode
+;; (save-place-mode 1)
 
-  ;; ;; Default to indenting with spaces (rather than tabs)
-  ;; (setq-default indent-tabs-mode nil)
-
-  ;; Override default major mode according to file name pattern
-  (add-to-list 'auto-mode-alist '("Pipfile.lock\\'" . javascript-mode))
-  (add-to-list 'auto-mode-alist '("Pipfile\\'" . conf-mode))
-  (add-to-list 'auto-mode-alist '("\\.clang-tidy\\'" . yaml-mode))
-  (add-to-list 'auto-mode-alist '("\\.env-.+\\'" . dotenv-mode))
-  (add-to-list 'auto-mode-alist '("\\.fish\\'" . shell-script-mode))
-  (add-to-list 'auto-mode-alist '("\\.gmk\\'" . makefile-mode)))
+;; Override default major mode according to file name pattern
+(add-to-list 'auto-mode-alist '("Pipfile.lock\\'" . javascript-mode))
+(add-to-list 'auto-mode-alist '("Pipfile\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.clang-tidy\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.env-.+\\'" . dotenv-mode))
+(add-to-list 'auto-mode-alist '("\\.fish\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\\.gmk\\'" . makefile-mode))
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.lst\\'" . fundamental-mode))
 (add-to-list 'auto-mode-alist '("\\.pylintrc\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("pylintrc\\'" . conf-mode))
 
-;; ;; Change the location of customizations (variables and faces)
-;; (setq custom-file (locate-user-emacs-file "custom.el"))
-;; (load custom-file 'noerror 'nomessage)
-
-;; Customizations follow
+;; Change the location of customizations (variables and faces)
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(load custom-file 'noerror 'nomessage)
