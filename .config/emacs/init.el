@@ -256,14 +256,14 @@
 ;;     (define-key input-decode-map "^[[1;5C" [(control right)])
 ;;     (define-key input-decode-map "^[[1;5D" [(control left)])))
 
-;; ;; Customize Emacs splash image
-;; (setq fancy-splash-image "~/.config/emacs/images/Emacs-logo.png")
-
 ;; Default to indenting with spaces (rather than tabs)
 (setq-default indent-tabs-mode nil)
 
 ;; Set C default style
 (setq c-default-style "bsd")
+
+;; ;; Customize Emacs splash image
+;; (setq fancy-splash-image "~/.config/emacs/images/Emacs-logo.png")
 
 ;; ;; Enable Global Auto-Revert Mode for both directories and files
 ;; (setq global-auto-revert-non-file-buffers t)
