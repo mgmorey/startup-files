@@ -265,8 +265,7 @@
 ;; ;; Customize Emacs splash image
 ;; (setq fancy-splash-image "~/.config/emacs/images/Emacs-logo.png")
 
-;; ;; Enable Global Auto-Revert Mode for both directories and files
-;; (setq global-auto-revert-non-file-buffers t)
+;; ;; Enable Global Auto-Revert Mode
 ;; (global-auto-revert-mode 1)
 
 ;; ;; Enable Recent File Mode
