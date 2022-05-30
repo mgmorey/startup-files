@@ -32,38 +32,12 @@ if [ -n "${BASH_VERSION-}" ]; then
 fi
 
 # # set parameters for optional software
+# gnu_dirs=/opt/gnu/{emacs,gdb,gnutls,nettle}
+# opt_dirs=/opt/{curl,giflib,git,openssl,p11-kit,python,sbcl}
 
-# bits="$(uname -m | sed 's/x86_//')"
-# gnudirs="/opt/gnu/gmp-6.2.1 /opt/gnu/gnutls-3.7.3 /opt/gnu/nettle-3.6"
-# optdirs="$gnudirs"
-
-# for dir in $(find $(eval ls -d /opt/$optdirs | sort -r) -type d); do
-#     case "$(basename "$dir" "$bits")" in
-#         (include)
-#             CPPFLAGS="-I$dir${CPPFLAGS+ $CPPFLAGS}"
-#             ;;
-#         (info)
-#             INFOPATH="$dir${INFOPATH+:$INFOPATH}"
-#             ;;
-#         (lib)
-#             LDLIBS="-L$dir${LDLIBS+ $LDLIBS}"
-#             LD_LIBRARY_PATH="$dir${LD_LIBRARY_PATH+:$LD_LIBRARY_PATH}"
-#             LD_RUN_PATH="$dir${LD_RUN_PATH+:$LD_RUN_PATH}"
-#             ;;
-#         (man)
-#             MANPATH="$dir${MANPATH+:$MANPATH}"
-#             ;;
-#         (bin)
-#             PATH="$dir${PATH+:$PATH}"
-#             ;;
-#         (pkgconfig)
-#             PKG_CONFIG_PATH="$dir${PKG_CONFIG_PATH+:$PKG_CONFIG_PATH}"
-#             ;;
-#     esac
-# done
-
-# export CPPFLAGS INFOPATH LDLIBS LD_LIBRARY_PATH LD_RUN_PATH MANPATH PATH
-# export PKG_CONFIG_PATH
+# if [ -x "$HOME/bin/set-oss-parameters" ]; then
+#     eval "$($HOME/bin/set-oss-parameters $gnu_dirs $opt_dirs)"
+# fi
 
 # set parameters for Homebrew
 if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
