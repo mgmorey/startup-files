@@ -141,3 +141,9 @@ for fortune in /usr/bin/fortune /usr/games/fortune; do
         break
     fi
 done
+
+# User-specific aliases and functions
+function dmalloc { eval `command dmalloc -b $*`; }
+
+# Utilize running SSH agent
+[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
