@@ -35,6 +35,10 @@
   ;; ;; Configure apex-mode
   ;; (require 'apex-mode)
 
+  ;; ;; Configure company
+  ;; (require 'company)
+  ;; (add-hook 'after-init-hook 'global-company-mode)
+
   ;; ;; Configure counsel
   ;; (require 'counsel)
   ;; (global-set-key (kbd "<f1> f") 'counsel-describe-function)
@@ -58,6 +62,10 @@
   ;; ;; Configure counsel-tags
   ;; (require 'counsel-etags)
   ;; (global-set-key (kbd "M-.") 'counsel-etags-find-tag-at-point)
+
+  ;; ;; Configure discover
+  ;; (require 'discover)
+  ;; (global-discover-mode 1)
 
   ;; ;; Configure display-line-numbers
   ;; (require 'display-line-numbers)
