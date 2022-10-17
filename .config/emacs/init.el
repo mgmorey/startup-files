@@ -95,6 +95,10 @@
   ;; (require 'eglot)
   ;; (add-hook 'c-mode-hook 'eglot-ensure)
   ;; (add-hook 'c++-mode-hook 'eglot-ensure)
+  ;; (define-key eglot-mode-map (kbd "C-c <tab>") #'company-complete)
+  ;; (define-key eglot-mode-map (kbd "C-c e f n") #'flymake-goto-next-error)
+  ;; (define-key eglot-mode-map (kbd "C-c e f p") #'flymake-goto-prev-error)
+  ;; (define-key eglot-mode-map (kbd "C-c e r") #'eglot-rename)
 
   ;; ;; Configure helm-mode
   ;; (require 'helm-config)
