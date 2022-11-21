@@ -286,6 +286,9 @@
 ;; ;; Enable Save Place Mode
 ;; (save-place-mode 1)
 
+;; ;; Enable Which Function Mode
+;; (which-function-mode)
+
 ;; Override default major mode according to file name pattern
 (add-to-list 'auto-mode-alist '("Pipfile.lock\\'" . javascript-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\'" . conf-mode))
