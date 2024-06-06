@@ -13,7 +13,7 @@
     ;; MELPA and MELPA Stable as desired
     ;; (add-to-list 'package-archives
     ;;              (cons "melpa"
-    ;;                    (concat proto "://melpa.org/packages/")) t)
+    ;;                   (concat proto "://melpa.org/packages/")) t)
     (add-to-list 'package-archives
       (cons "melpa-stable"
         (concat proto "://stable.melpa.org/packages/")) t)
