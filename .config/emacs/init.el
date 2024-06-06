@@ -9,11 +9,11 @@
   (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                    (not (gnutls-available-p))))
           (proto (if no-ssl "http" "https")))
-    ;; Comment/uncomment the next two statements to enable/disable
-    ;; MELPA and MELPA Stable as desired
+    ;; ;; Comment/uncomment the next two statements to enable/disable
+    ;; ;; MELPA and MELPA Stable as desired
     ;; (add-to-list 'package-archives
-    ;;              (cons "melpa"
-    ;;                   (concat proto "://melpa.org/packages/")) t)
+    ;;   (cons "melpa"
+    ;;     (concat proto "://melpa.org/packages/")) t)
     (add-to-list 'package-archives
       (cons "melpa-stable"
         (concat proto "://stable.melpa.org/packages/")) t)
