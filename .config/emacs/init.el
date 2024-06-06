@@ -290,6 +290,7 @@
 ;; (which-function-mode)
 
 ;; Override default major mode according to file name pattern
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("Pipfile.lock\\'" . javascript-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.clang-tidy\\'" . yaml-mode))
@@ -299,6 +300,7 @@
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.lst\\'" . fundamental-mode))
 (add-to-list 'auto-mode-alist '("\\.pylintrc\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 (add-to-list 'auto-mode-alist '("pylintrc\\'" . conf-mode))
 
 ;; Change the location of customizations (variables and faces)
