@@ -24,7 +24,7 @@ fi
 
 # # set parameters for optional software
 # gnu_dirs=/opt/gnu/{emacs,gdb,gnutls,nettle}
-# opt_dirs=/opt/{curl,giflib,git,openssl,p11-kit,python,sbcl}
+# opt_dirs=/opt/{ctags,curl,giflib,git,openssl,p11-kit,python,sbcl}
 
 # if [ -x "$HOME/bin/set-oss-parameters" ]; then
 #     eval "$($HOME/bin/set-oss-parameters $gnu_dirs $opt_dirs)"
