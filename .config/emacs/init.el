@@ -160,6 +160,7 @@
   ;; ;; Configure swiper
   ;; (require 'swiper)
   ;; (global-set-key (kbd "C-s") 'swiper-isearch)
+  ;; (global-set-key (kbd "C-r") 'swiper-isearch-backward)
 
   ;; ;; Bootstrap use-package
   ;; (unless (package-installed-p 'use-package)
