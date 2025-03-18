@@ -17,6 +17,7 @@ export LC_ALL=${LC_ALL-en_US.UTF-8}
 export CONFIRM_PACKAGE_INSTALL=true
 export EDITOR=emacs
 export FLASK_ENV=development
+export SSL_CERT_DIR=$HOME/certificates
 
 if [ -n "${WSL_DISTRO_NAME-}" ]; then
     export WSL_HOST=$($HOME/bin/get-nameserver /etc/resolv.conf)
