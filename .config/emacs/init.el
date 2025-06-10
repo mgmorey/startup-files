@@ -291,7 +291,8 @@
 ;; (which-function-mode)
 
 ;; Override default major mode according to file name pattern
-(add-to-list 'auto-mode-alist '("Dockerfile\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("Containerfile\\'" . dockerfile-mode))
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 (add-to-list 'auto-mode-alist '("Pipfile.lock\\'" . javascript-mode))
 (add-to-list 'auto-mode-alist '("Pipfile\\'" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.clang-tidy\\'" . yaml-mode))
