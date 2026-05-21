@@ -4,7 +4,7 @@
 # see /usr/share/doc/bash/examples/startup-files for examples.
 # the files are located in the bash-doc package.
 
-# the default umask is set in /etc/profile; for setting the umask
+# The default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
 
 umask 0027
@@ -23,7 +23,7 @@ if [ -n "${WSL_DISTRO_NAME-}" ]; then
     export WSL_HOST
 fi
 
-# if running bash
+# If running bash
 if [ -n "${BASH_VERSION-}" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
@@ -31,7 +31,7 @@ if [ -n "${BASH_VERSION-}" ]; then
     fi
 fi
 
-# # set parameters for optional software
+# # Set parameters for optional software
 # gnu_dirs=/opt/gnu/{emacs,gdb,gnutls,nettle}
 # opt_dirs=/opt/{curl,giflib,git,openssl,p11-kit,python,sbcl}
 
@@ -39,19 +39,19 @@ fi
 #     eval "$($HOME/bin/set-oss-parameters $gnu_dirs $opt_dirs)"
 # fi
 
-# set parameters for Homebrew
+# Set parameters for Homebrew
 if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 elif [ -x "$HOME/.linuxbrew/bin/brew" ]; then
     eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
 fi
 
-# set parameters
+# Set parameters
 if [ -x "$HOME/bin/set-parameters" ]; then
     eval "$($HOME/bin/set-parameters)"
 fi
 
-# enable pipenv completion
+# Enable pipenv completion
 if which pipenv >/dev/null 2>&1; then
     case $- in
         *i*)
@@ -62,11 +62,17 @@ if which pipenv >/dev/null 2>&1; then
     esac
 fi
 
-# enable pyenv
+# Enable pyenv
 if which pyenv >/dev/null 2>&1; then
     case $- in
         *i*)
             eval "$(pyenv init --path)"
             ;;
     esac
+fi
+
+# Start ssh-agent if necessary
+if [ -z "$SSH_AUTH_SOCK" ] || ! ssh-add -l >/dev/null 2>&1; then
+    eval "$(ssh-agent -s)"
+    trap 'ssh-agent -k' EXIT
 fi

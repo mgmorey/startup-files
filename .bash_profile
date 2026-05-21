@@ -1,9 +1,9 @@
-# the default umask is set in /etc/profile; for setting the umask
+# The default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
 
-# if running bash
+# If running bash
 if [ -n "${BASH_VERSION-}" ]; then
-    # include .bashrc if it exists
+    # Include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
         . "$HOME/.bashrc"
     fi
@@ -19,6 +19,7 @@ export EDITOR=emacs
 export FLASK_ENV=development
 export SSL_CERT_DIR=$HOME/certificates
 
+# Set WSL_HOST for WSL Distros
 if [ -n "${WSL_DISTRO_NAME-}" ]; then
     export WSL_HOST=$($HOME/bin/get-nameserver /etc/resolv.conf)
 fi
@@ -31,23 +32,29 @@ fi
 #     eval "$($HOME/bin/set-oss-parameters $gnu_dirs $opt_dirs)"
 # fi
 
-# set parameters for Homebrew
+# Set parameters for Homebrew
 if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 elif [ -x "$HOME/.linuxbrew/bin/brew" ]; then
     eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
 fi
 
-# set parameters
+# Set parameters
 if [ -x "$HOME/bin/set-parameters" ]; then
     eval "$($HOME/bin/set-parameters)"
 fi
 
-# enable pyenv
+# Enable pyenv
 if which pyenv >/dev/null 2>&1; then
     case $- in
         *i*)
             eval "$(pyenv init --path)"
             ;;
     esac
+fi
+
+# Start ssh-agent if necessary
+if [ -z "$SSH_AUTH_SOCK" ] || ! ssh-add -l >/dev/null 2>&1; then
+    eval "$(ssh-agent -s)"
+    trap 'ssh-agent -k' EXIT
 fi
