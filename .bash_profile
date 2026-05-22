@@ -13,13 +13,10 @@ export SSH_AGENT_ENV="$HOME/.ssh/agent.env"
 export SSH_AGENT_OWNER="$HOME/.ssh/agent.owner"
 
 cleanup_ssh_agent() {
-    # Must be very defensive
     if [ -f "$SSH_AGENT_OWNER" ] &&
 	   [ "$(cat "$SSH_AGENT_OWNER")" = "$$" ] &&
 	   [ -n "$SSH_AGENT_PID" ] &&
 	   kill -0 "$SSH_AGENT_PID" 2>/dev/null; then
-
-        echo "Killing ssh-agent (PID $SSH_AGENT_PID)"
         ssh-agent -k >/dev/null
         rm -f "$SSH_AGENT_ENV" "$SSH_AGENT_OWNER"
     fi
