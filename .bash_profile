@@ -12,7 +12,7 @@ export FLASK_ENV=development
 export SSH_AGENT_ENV="$HOME/.ssh/agent.env"
 export SSH_AGENT_OWNER="$HOME/.ssh/agent.owner"
 
-cleanup_ssh_agent() {
+clean_up_ssh_agent() {
     if [ -f "$SSH_AGENT_OWNER" ] &&
 	   [ "$(cat "$SSH_AGENT_OWNER")" = "$$" ] &&
 	   [ -n "$SSH_AGENT_PID" ] &&
@@ -47,7 +47,7 @@ EOF
     echo "$$" >"$SSH_AGENT_OWNER"
 
     # Register cleanup
-    trap cleanup_ssh_agent EXIT
+    trap clean_up_ssh_agent EXIT
 }
 
 # If running bash
