@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
-      *) return;;
+    *) return;;
 esac
 
 clean_up_ssh_agent() {
@@ -46,7 +46,7 @@ start_ssh_agent() {
     # Save environment
     mkdir -p "$(dirname "$SSH_AGENT_ENV")"
     printf 'export SSH_AUTH_SOCK=%s\nexport SSH_AGENT_PID=%s\n' \
-        "$SSH_AUTH_SOCK" "$SSH_AGENT_PID" > "$SSH_AGENT_ENV"
+           "$SSH_AUTH_SOCK" "$SSH_AGENT_PID" > "$SSH_AGENT_ENV"
 
     # Register cleanup; expand PID now so the trap kills the right agent
     # even if agent.env is later overwritten by another shell
@@ -105,11 +105,11 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
+    xterm*|rxvt*)
+        PS1="\[\e]0;\u@\h: \w\a\]$PS1"
+        ;;
+    *)
+        ;;
 esac
 
 # enable color support of ls and also add handy aliases
