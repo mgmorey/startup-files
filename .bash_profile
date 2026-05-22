@@ -10,7 +10,6 @@ export CONFIRM_PACKAGE_INSTALL=true
 export EDITOR=emacs
 export FLASK_ENV=development
 export SSH_AGENT_ENV="$HOME/.ssh/agent.env"
-export SSH_AGENT_OWNER="$HOME/.ssh/agent.owner"
 
 # If running bash
 if [ -n "${BASH_VERSION-}" ]; then
