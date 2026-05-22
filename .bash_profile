@@ -12,44 +12,6 @@ export FLASK_ENV=development
 export SSH_AGENT_ENV="$HOME/.ssh/agent.env"
 export SSH_AGENT_OWNER="$HOME/.ssh/agent.owner"
 
-clean_up_ssh_agent() {
-    if [ -f "$SSH_AGENT_OWNER" ] &&
-	   [ "$(cat "$SSH_AGENT_OWNER")" = "$$" ] &&
-	   [ -n "$SSH_AGENT_PID" ] &&
-	   kill -0 "$SSH_AGENT_PID" 2>/dev/null; then
-        ssh-agent -k >/dev/null
-        rm -f "$SSH_AGENT_ENV" "$SSH_AGENT_OWNER"
-    fi
-}
-
-load_ssh_agent() {
-    [ -f "$SSH_AGENT_ENV" ] && source "$SSH_AGENT_ENV" >/dev/null
-}
-
-ssh_agent_is_valid() {
-    [ -n "$SSH_AUTH_SOCK" ] &&
-	[ -S "$SSH_AUTH_SOCK" ] &&
-	kill -0 "$SSH_AGENT_PID" 2>/dev/null &&
-	ssh-add -l >/dev/null 2>&1
-}
-
-start_ssh_agent() {
-    eval "$(ssh-agent -s)"
-
-    # Save environment
-    mkdir -p "$(dirname "$SSH_AGENT_ENV")"
-    cat > "$SSH_AGENT_ENV" <<EOF
-export SSH_AUTH_SOCK=$SSH_AUTH_SOCK
-export SSH_AGENT_PID=$SSH_AGENT_PID
-EOF
-
-    # Record owner shell PID
-    echo "$$" >"$SSH_AGENT_OWNER"
-
-    # Register cleanup
-    trap clean_up_ssh_agent EXIT
-}
-
 # If running bash
 if [ -n "${BASH_VERSION-}" ]; then
     # Include .bashrc if it exists
@@ -92,10 +54,10 @@ if which pyenv >/dev/null 2>&1; then
     esac
 fi
 
-# Load existing SSH agent if possible
-load_ssh_agent
+# In character-mode sessions, try to reuse a previously started agent.
+# Skip in desktop sessions (e.g. GNOME) where SSH_AUTH_SOCK is already
+# set by the session manager; loading agent.env there would override it.
 
-# Start new SSH agent if needed
-if ! ssh_agent_is_valid; then
-    start_ssh_agent
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    load_ssh_agent
 fi

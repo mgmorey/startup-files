@@ -8,6 +8,51 @@ case $- in
       *) return;;
 esac
 
+clean_up_ssh_agent() {
+    # $1 = PID of the agent this shell started
+    if kill -0 "$1" 2>/dev/null; then
+        SSH_AGENT_PID="$1" ssh-agent -k >/dev/null 2>&1
+    fi
+    rm -f "$SSH_AGENT_ENV"
+}
+
+get_ssh_agent() {
+    if is_valid_ssh_agent; then
+        printf 'ssh-agent already running (PID %s, socket %s)\n' \
+               "${SSH_AGENT_PID:-<unknown>}" \
+               "$SSH_AUTH_SOCK"
+        return 0
+    fi
+    start_ssh_agent
+}
+
+is_valid_ssh_agent() {
+    local rc
+    [ -n "$SSH_AUTH_SOCK" ] || return 1
+    [ -S "$SSH_AUTH_SOCK" ] || return 1
+    ssh-add -l >/dev/null 2>&1
+    rc=$?
+    # rc 0 = keys listed, rc 1 = no keys but agent running, rc 2 = can't connect
+    [ "$rc" -le 1 ]
+}
+
+load_ssh_agent() {
+    [ -f "$SSH_AGENT_ENV" ] && . "$SSH_AGENT_ENV" >/dev/null
+}
+
+start_ssh_agent() {
+    eval "$(ssh-agent -s)"
+
+    # Save environment
+    mkdir -p "$(dirname "$SSH_AGENT_ENV")"
+    printf 'export SSH_AUTH_SOCK=%s\nexport SSH_AGENT_PID=%s\n' \
+        "$SSH_AUTH_SOCK" "$SSH_AGENT_PID" > "$SSH_AGENT_ENV"
+
+    # Register cleanup; expand PID now so the trap kills the right agent
+    # even if agent.env is later overwritten by another shell
+    trap "clean_up_ssh_agent $SSH_AGENT_PID" EXIT
+}
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
