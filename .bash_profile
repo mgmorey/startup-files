@@ -11,6 +11,10 @@ export EDITOR=emacs
 export FLASK_ENV=development
 export SSH_AGENT_ENV="$HOME/.ssh/agent.env"
 
+load_ssh_agent() {
+    [ -f "$SSH_AGENT_ENV" ] && . "$SSH_AGENT_ENV" >/dev/null
+}
+
 # If running bash
 if [ -n "${BASH_VERSION-}" ]; then
     # Include .bashrc if it exists

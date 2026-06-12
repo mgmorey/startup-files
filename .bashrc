@@ -36,10 +36,6 @@ is_valid_ssh_agent() {
     [ "$rc" -le 1 ]
 }
 
-load_ssh_agent() {
-    [ -f "$SSH_AGENT_ENV" ] && . "$SSH_AGENT_ENV" >/dev/null
-}
-
 start_ssh_agent() {
     eval "$(ssh-agent -s)"
 
