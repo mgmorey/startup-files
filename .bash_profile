@@ -15,7 +15,7 @@ load_ssh_agent() {
     [ -f "$SSH_AGENT_ENV" ] && . "$SSH_AGENT_ENV" >/dev/null
 }
 
-# If running bash
+# If running Bash
 if [ -n "${BASH_VERSION-}" ]; then
     # Include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
@@ -28,7 +28,7 @@ if [ -n "${WSL_DISTRO_NAME-}" ]; then
     export WSL_HOST=$($HOME/bin/get-nameserver /etc/resolv.conf)
 fi
 
-# # set parameters for optional software
+# # Set GNU/optional software parameters
 # gnu_dirs=/opt/gnu/{emacs,gdb,gnutls,nettle,texinfo}
 # opt_dirs=/opt/{cppcheck,ctags,curl,git,openssl,p11-kit,sbcl}
 
@@ -36,7 +36,7 @@ fi
 #     eval "$($HOME/bin/set-oss-parameters $gnu_dirs $opt_dirs)"
 # fi
 
-# Set parameters for Homebrew
+# Set Homebrew parameters
 if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 elif [ -x "$HOME/.linuxbrew/bin/brew" ]; then
@@ -48,14 +48,14 @@ if [ -x "$HOME/bin/set-parameters" ]; then
     eval "$($HOME/bin/set-parameters)"
 fi
 
-# Enable pyenv
-if which pyenv >/dev/null 2>&1; then
-    case $- in
-        *i*)
-            eval "$(pyenv init --path)"
-            ;;
-    esac
-fi
+# # Enable pyenv
+# if which pyenv >/dev/null 2>&1; then
+#     case $- in
+#         *i*)
+#             eval "$(pyenv init --path)"
+#             ;;
+#     esac
+# fi
 
 # In character-mode sessions, try to reuse a previously started agent.
 # Skip in desktop sessions (e.g. GNOME) where SSH_AUTH_SOCK is already
