@@ -201,6 +201,12 @@
   ;;   (setq lsp-ui-sideline-show-code-actions t)
   ;;   (setq lsp-ui-sideline-delay 0.05))
 
+  ;; (use-package markdown-mode
+  ;;   :ensure t
+  ;;   :hook (markdown-mode . markdown-live-preview-mode)
+  ;;   :config
+  ;;   (setq markdown-command "pandoc"))
+
   ;; (use-package modus-themes
   ;;   :ensure
   ;;   :init
