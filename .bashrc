@@ -5,8 +5,10 @@
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
-    *) return;;
+    *) return ;;
 esac
+
+# Define shell functions
 
 clean_up_ssh_agent() {
     # $1 = PID of the agent this shell started
@@ -49,6 +51,19 @@ start_ssh_agent() {
     trap "clean_up_ssh_agent $SSH_AGENT_PID" EXIT
 }
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# Set nvm parameters
+export NVM_DIR="$HOME/.nvm"
+[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"
+[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -83,12 +98,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -110,7 +125,11 @@ esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/local/bin/gdircolors ]; then
-    test -r ~/.dircolors && eval "$(gdircolors -b ~/.gdircolors)" || eval "$(gdircolors -b)"
+    if [ -r ~/.dircolors ]; then
+        eval "$(gdircolors -b ~/.dircolors)"
+    else
+        eval "$(gdircolors -b)"
+    fi
     alias ls='gls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
@@ -119,7 +138,11 @@ if [ -x /usr/local/bin/gdircolors ]; then
     #alias fgrep='fgrep --color=auto'
     #alias egrep='egrep --color=auto'
 elif [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    if [ -r ~/.dircolors ]; then
+        eval "$(dircolors -b ~/.dircolors)"
+    else
+        eval "$(dircolors -b)"
+    fi
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
@@ -133,12 +156,12 @@ fi
 export CLICOLOR=YES
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -160,15 +183,6 @@ if ! shopt -oq posix; then
     elif [ -f /etc/bash_completion ]; then
         . /etc/bash_completion
     fi
-fi
-
-# enable pyenv
-if which pyenv >/dev/null 2>&1; then
-    case $- in
-        *i*)
-            eval "$(pyenv init -)"
-            ;;
-    esac
 fi
 
 # Some people don't like fortune. If you uncomment the following lines,
