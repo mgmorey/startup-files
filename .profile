@@ -50,16 +50,11 @@ if [ -x "$HOME/bin/set-parameters" ]; then
     eval "$("$HOME/bin/set-parameters")"
 fi
 
-# Set GNU/optional software parameters
-gnu_dirs="/opt/gnu/emacs /opt/gnu/gmp /opt/gnu/gnutls /opt/gnu/libidn \
-/opt/gnu/libtasn1 /opt/gnu/libunistring /opt/gnu/nettle /opt/gnu/texinfo"
-opt_dirs="/opt/ctags $gnu_dirs /opt/libpsl"
-
+# Set user-installed software parameters (software built into ~/.local)
 if [ -x "$HOME/bin/set-oss-parameters" ]; then
-    eval "$("$HOME/bin/set-oss-parameters" $opt_dirs)"
+    eval "$("$HOME/bin/set-oss-parameters" "$HOME/.local/share/info" \
+        "$HOME/.local/share/man")"
 fi
-
-unset gnu_dirs opt_dirs
 
 # Set Cargo parameters
 if [ -r "$HOME/.cargo/env" ]; then

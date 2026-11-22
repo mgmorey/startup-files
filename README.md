@@ -57,8 +57,10 @@ public, host-specific values must never be committed to the templates.
 They are provided by the utility-scripts repository:
 
 - `get-nameserver` determines the Windows host address under WSL.
-- `set-oss-parameters` adds optional software trees under `/opt` to the search
-  paths.
+- `set-oss-parameters` adds the `info` and `man` directories of software built
+  into `~/.local` to the search paths. A host that keeps software elsewhere,
+  such as under `/opt`, can call it from `~/.profile.local` with those
+  directories.
 - `set-parameters` sets general environment parameters.
 
 ## Contents
