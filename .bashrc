@@ -15,6 +15,7 @@ clean_up_ssh_agent() {
     if kill -0 "$1" 2>/dev/null; then
         SSH_AGENT_PID="$1" ssh-agent -k >/dev/null 2>&1
     fi
+
     rm -f "$SSH_AGENT_ENV"
 }
 
@@ -25,6 +26,7 @@ get_ssh_agent() {
                "$SSH_AUTH_SOCK"
         return 0
     fi
+
     start_ssh_agent
 }
 
@@ -58,8 +60,14 @@ fi
 
 # Set nvm parameters
 export NVM_DIR="$HOME/.nvm"
-[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"
-[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"
+
+if [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ]; then
+    . "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"
+fi
+
+if [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] ; then
+    . "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"
+fi
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=

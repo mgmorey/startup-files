@@ -52,8 +52,9 @@ fi
 
 # Set user-installed software parameters (software built into ~/.local)
 if [ -x "$HOME/bin/set-oss-parameters" ]; then
-    eval "$("$HOME/bin/set-oss-parameters" "$HOME/.local/share/info" \
-        "$HOME/.local/share/man")"
+    eval "$("$HOME/bin/set-oss-parameters" \
+         "$HOME/.local/share/info" \
+         "$HOME/.local/share/man")"
 fi
 
 # Set Cargo parameters
@@ -66,18 +67,29 @@ for brew_cmd in /home/linuxbrew/.linuxbrew/bin/brew "$HOME/.linuxbrew/bin/brew";
     if [ -x "$brew_cmd" ]; then
         # The bash form of shellenv output is POSIX-compatible
         eval "$("$brew_cmd" shellenv bash | grep -Ev '^export (INFOPATH|PATH)=')"
+
         case ":${INFOPATH-}:" in
-            (*":$HOMEBREW_PREFIX/share/info:"*) ;;
-            (*) export INFOPATH="$HOMEBREW_PREFIX/share/info${INFOPATH:+:$INFOPATH}" ;;
+            (*":$HOMEBREW_PREFIX/share/info:"*)
+                true
+                ;;
+            (*)
+                export INFOPATH="$HOMEBREW_PREFIX/share/info${INFOPATH:+:$INFOPATH}"
+                ;;
         esac
+
         for dir in "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin"; do
             case ":$PATH:" in
-                (*":$dir:"*) ;;
-                (*) PATH="$PATH:$dir" ;;
+                (*":$dir:"*)
+                    true
+                    ;;
+                (*)
+                    PATH="$PATH:$dir"
+                    ;;
             esac
         done
-        export PATH
+
         export HOMEBREW_NO_ANALYTICS=1
+        export PATH
         break
     fi
 done
@@ -87,8 +99,12 @@ unset brew_cmd dir
 # Set user-specific parameters
 for dir in "$HOME/bin" "$HOME/.local/bin"; do
     case ":$PATH:" in
-        (*":$dir:"*) ;;
-        (*) PATH="$dir:$PATH" ;;
+        (*":$dir:"*)
+            true
+            ;;
+        (*)
+            PATH="$dir:$PATH"
+            ;;
     esac
 done
 
